@@ -33,6 +33,14 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""WASD Movement"",
+                    ""type"": ""Value"",
+                    ""id"": ""50d7f48c-0365-4393-a205-da5999f72c04"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -79,6 +87,61 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""action"": ""Mouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""461ea499-02bb-4723-8a4f-92bedea6bd7b"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WASD Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""889fcb0a-25a2-4a9f-bd57-3f0d52151551"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WASD Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""7eec6bba-eb8a-4a07-938f-d3a1b5d29068"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WASD Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""aa3f341f-9c16-4333-82cf-ee3433f28ce8"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WASD Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""325a70bb-01e0-45aa-b257-28d2697a1a60"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WASD Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -89,6 +152,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_LeftAndRight = m_Player.FindAction("LeftAndRight", throwIfNotFound: true);
         m_Player_Mouse = m_Player.FindAction("Mouse", throwIfNotFound: true);
+        m_Player_WASDMovement = m_Player.FindAction("WASD Movement", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -140,12 +204,14 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_LeftAndRight;
     private readonly InputAction m_Player_Mouse;
+    private readonly InputAction m_Player_WASDMovement;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
         public PlayerActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @LeftAndRight => m_Wrapper.m_Player_LeftAndRight;
         public InputAction @Mouse => m_Wrapper.m_Player_Mouse;
+        public InputAction @WASDMovement => m_Wrapper.m_Player_WASDMovement;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -161,6 +227,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @Mouse.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouse;
                 @Mouse.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouse;
                 @Mouse.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouse;
+                @WASDMovement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWASDMovement;
+                @WASDMovement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWASDMovement;
+                @WASDMovement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWASDMovement;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -171,6 +240,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @Mouse.started += instance.OnMouse;
                 @Mouse.performed += instance.OnMouse;
                 @Mouse.canceled += instance.OnMouse;
+                @WASDMovement.started += instance.OnWASDMovement;
+                @WASDMovement.performed += instance.OnWASDMovement;
+                @WASDMovement.canceled += instance.OnWASDMovement;
             }
         }
     }
@@ -179,5 +251,6 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     {
         void OnLeftAndRight(InputAction.CallbackContext context);
         void OnMouse(InputAction.CallbackContext context);
+        void OnWASDMovement(InputAction.CallbackContext context);
     }
 }

@@ -6,17 +6,16 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
 
-    private float fMovement;
+    private Vector2 vMovement;
     private Vector2 vMouseVector;
+    private Vector3 velocity;
 
     private float xRotation = 0.0f;
     private float yRotation = 0.0f;
     private float mouseSensitivity = 100.0f;
 
-
     [SerializeField] private CharacterController playerController;
     [SerializeField] private Camera playerCamera;
-    [SerializeField] private float fGravity = -9.8f;
     [SerializeField] private float fMoveSpeed;
 
     private void Start()
@@ -28,19 +27,20 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //Left and Right(A and D) movement
-        Vector3 vMovement = new Vector3(fMovement, 0, 0);
-        playerController.Move(vMovement * fMoveSpeed * Time.deltaTime);
+        //Vector3 vMovementVec = new Vector3(vMovement.x, 0, vMovement.y);
+        Vector3 vMovementVector = transform.right * vMovement.x + transform.forward * vMovement.y;
+        playerController.Move(vMovementVector * fMoveSpeed * Time.deltaTime);
+        transform.position = new Vector3(transform.position.x, 2, 0);
 
         xRotation -= vMouseVector.y;
         xRotation = Mathf.Clamp(xRotation, -90, 90);
         yRotation += vMouseVector.x;
         yRotation = Mathf.Clamp(yRotation, -90, 90);
         transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
-
     }
     public void OnMove(InputAction.CallbackContext context)
     {
-        fMovement = context.ReadValue<float>();
+        vMovement = context.ReadValue<Vector2>();
     }
 
     public void OnMouse(InputAction.CallbackContext context)
