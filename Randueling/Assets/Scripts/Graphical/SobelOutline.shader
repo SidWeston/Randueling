@@ -30,7 +30,9 @@ Shader "PostProcessing/SobelOutline"
     {
         float3 offset = float3((1.0 / _ScreenParams.x), (1.0 / _ScreenParams.y), 0.0) * 0.5;
         float pixelValue = SobelSampleDepth(_CameraDepthTexture, sampler_CameraDepthTexture, i.texcoord.xy, offset).r;
-        return float4(pixelValue,pixelValue,pixelValue,1.0);
+        //Used to set the black and white to the two colours set in editor
+        float3 finalColor = lerp(_DarkColor, _LightColor, pixelValue);
+        return float4(finalColor,1.0);
     }
         ENDHLSL
 
