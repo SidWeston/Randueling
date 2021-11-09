@@ -23,7 +23,8 @@ Shader "PostProcessing/SobelOutline"
         float pixelUp = LinearEyeDepth(t.Sample(s, uv + offset.zy).r);
         float pixelDown = LinearEyeDepth(t.Sample(s, uv - offset.zy).r);
 
-        return SobelDepth(pixelCenter, pixelLeft, pixelRight, pixelUp, pixelDown);
+        //Used to artificially "band" the results of the depth buffer, find better solution later!!
+        return sqrt(SobelDepth(round(pixelCenter * 100) / 100, round(pixelLeft * 100) / 100, round(pixelRight * 100) / 100, round(pixelUp * 100) / 100, round(pixelDown * 100) / 100));
     }
 
     float4 FragMain(VaryingsDefault i) : SV_Target
