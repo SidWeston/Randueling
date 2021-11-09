@@ -38,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
         yRotation = Mathf.Clamp(yRotation, 90, 270);
         transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
     }
+
+    //input functions return a value from player input
     public void OnMove(InputAction.CallbackContext context)
     {
         vMovement = context.ReadValue<Vector2>();
