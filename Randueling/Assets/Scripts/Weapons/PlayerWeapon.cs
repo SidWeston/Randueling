@@ -27,21 +27,21 @@ public class PlayerWeapon : MonoBehaviour
         if(fireWeapon > 0.1f)
         {
 
-            Ray rayToScreen = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); //creates a ray to the middle of the screen
-            RaycastHit hit;
-            Vector3 targetPoint;
+            //Ray rayToScreen = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); //creates a ray to the middle of the screen
+            //RaycastHit hit;
+            //Vector3 targetPoint;
 
-            if (Physics.Raycast(rayToScreen, out hit))
-            {
-                targetPoint = hit.point;
-            }
-            else //if false, the player is shooting into the air
-            {
-                targetPoint = rayToScreen.GetPoint(75); //gets a vector3 point in the direction of the raycast that is far away from the player
-            }
-            Vector3 direction = targetPoint - bulletSpawnLocation.transform.position;
+            //if (Physics.Raycast(rayToScreen, out hit))
+            //{
+            //    targetPoint = hit.point;
+            //}
+            //else //if false, the player is shooting into the air
+            //{
+            //    targetPoint = rayToScreen.GetPoint(75); //gets a vector3 point in the direction of the raycast that is far away from the player
+            //}
+            //Vector3 direction = targetPoint - bulletSpawnLocation.transform.position;
 
-            currentWeapon.GetComponent<WeaponBase>().FireWeapon(direction);
+            currentWeapon.GetComponent<WeaponBase>().FireWeapon(bulletSpawnLocation.transform.forward);
         }
     }
 

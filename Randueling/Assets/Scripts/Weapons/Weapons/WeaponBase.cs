@@ -39,12 +39,12 @@ public class WeaponBase : MonoBehaviour
         if (isProjectile && readyToShoot)
         {
 
-            Debug.Log("Firing");
             readyToShoot = false;
 
             GameObject currentBullet = Instantiate(bullet, bulletSpawnLocation.transform.position, Quaternion.identity);
             currentBullet.transform.forward = directionToFire.normalized;
-            currentBullet.GetComponent<Rigidbody>().AddForce(directionToFire.normalized * bulletVelocity, ForceMode.Impulse);
+            currentBullet.GetComponent<ProjectileScript>().whoOwnsThis = 2;
+            currentBullet.GetComponent<ProjectileScript>().bulletSpeed = bulletVelocity;
 
             Invoke("ResetShot", timeBetweenShots);
 
