@@ -41,6 +41,14 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""SpawnObject"",
+                    ""type"": ""Button"",
+                    ""id"": ""1a613459-8ac9-44b0-859c-f99f33eec223"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -241,6 +249,17 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""278a48b2-1e6f-4a6d-a64d-0b334fe2ea55"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SpawnObject"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -252,6 +271,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         m_Player_Mouse = m_Player.FindAction("Mouse", throwIfNotFound: true);
         m_Player_WASDMovement = m_Player.FindAction("WASD Movement", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
+        m_Player_SpawnObject = m_Player.FindAction("SpawnObject", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -304,6 +324,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Mouse;
     private readonly InputAction m_Player_WASDMovement;
     private readonly InputAction m_Player_Fire;
+    private readonly InputAction m_Player_SpawnObject;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
@@ -311,6 +332,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         public InputAction @Mouse => m_Wrapper.m_Player_Mouse;
         public InputAction @WASDMovement => m_Wrapper.m_Player_WASDMovement;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
+        public InputAction @SpawnObject => m_Wrapper.m_Player_SpawnObject;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -329,6 +351,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @Fire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Fire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Fire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
+                @SpawnObject.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpawnObject;
+                @SpawnObject.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpawnObject;
+                @SpawnObject.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpawnObject;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -342,6 +367,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @Fire.started += instance.OnFire;
                 @Fire.performed += instance.OnFire;
                 @Fire.canceled += instance.OnFire;
+                @SpawnObject.started += instance.OnSpawnObject;
+                @SpawnObject.performed += instance.OnSpawnObject;
+                @SpawnObject.canceled += instance.OnSpawnObject;
             }
         }
     }
@@ -351,5 +379,6 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         void OnMouse(InputAction.CallbackContext context);
         void OnWASDMovement(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
+        void OnSpawnObject(InputAction.CallbackContext context);
     }
 }

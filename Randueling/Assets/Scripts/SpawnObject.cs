@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
 public class SpawnObject : MonoBehaviour
 {
@@ -10,6 +10,8 @@ public class SpawnObject : MonoBehaviour
 
     public Vector3 center;
     public Vector3 size;
+
+    public float shouldSpawn;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +24,7 @@ public class SpawnObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Q))
+        if (shouldSpawn > 0)
             SpawnObj();
 
 
@@ -42,4 +44,11 @@ public class SpawnObject : MonoBehaviour
         Gizmos.color = new Color(1,0,0,0.5f);
         Gizmos.DrawCube(transform.localPosition + center, size);
     }
+
+
+    public void OnSpawn(InputAction.CallbackContext context)
+    {
+        shouldSpawn = context.ReadValue<float>();
+    }
+
 }
