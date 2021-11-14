@@ -34,8 +34,8 @@ public class SpawnObject : MonoBehaviour
     public void SpawnObj() {
         Vector3 pos = center + new Vector3(Random.Range(-size.x / 2, size.x / 2), (Random.Range(-size.y / 2, size.y / 2)), (Random.Range(-size.z / 2, size.z / 2)));
 
-        int randomprefab = Random.Range(0, prefabs.Count - 1);
-        Instantiate(prefabs[randomprefab], pos, Quaternion.identity);
+        int randomprefab = Random.Range(0, prefabs.Count);
+        Instantiate(prefabs[randomprefab], pos, prefabs[randomprefab].transform.rotation);
     }
 
     // Creates red cube on screen to show area in which prefabs can spawn

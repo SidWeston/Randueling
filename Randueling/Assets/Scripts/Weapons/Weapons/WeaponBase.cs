@@ -43,7 +43,8 @@ public class WeaponBase : MonoBehaviour
 
             GameObject currentBullet = Instantiate(bullet, bulletSpawnLocation.transform.position, Quaternion.identity);
             currentBullet.transform.forward = directionToFire.normalized;
-            currentBullet.GetComponent<ProjectileScript>().whoOwnsThis = 2;
+            //Temp variable to decide bullet owner, change this later!
+            currentBullet.GetComponent<ProjectileScript>().whoOwnsThis = 1;
             currentBullet.GetComponent<ProjectileScript>().bulletSpeed = bulletVelocity;
 
             Invoke("ResetShot", timeBetweenShots);
