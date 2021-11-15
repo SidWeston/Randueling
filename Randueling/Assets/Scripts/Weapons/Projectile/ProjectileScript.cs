@@ -28,6 +28,7 @@ public class ProjectileScript : MonoBehaviour
         {
             opposingTransform = GameObject.FindGameObjectWithTag("Player1").transform;
         }
-        transform.forward = opposingTransform.position - transform.position;
+        Vector3 newDirection = opposingTransform.position - transform.position;
+        transform.forward = Vector3.Lerp(newDirection, transform.forward, 0.5f);
     }
 }
