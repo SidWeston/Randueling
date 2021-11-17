@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
 
+    public GameObject playerManager;
+
     private Vector2 vMovement;
     private Vector2 vMouseVector;
 
@@ -16,6 +18,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private CharacterController playerController;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private float fMoveSpeed;
+
+    public float zLocationLock;
+    public bool invertXClamp = false;
+    public bool rotationEnabled = false;
 
     private void Start()
     {
@@ -29,14 +35,26 @@ public class PlayerMovement : MonoBehaviour
         Vector3 vMovementVector = transform.right * vMovement.x + transform.forward * vMovement.y;
         playerController.Move(vMovementVector * fMoveSpeed * Time.deltaTime);
         //Keeps player on single axis
-        transform.position = new Vector3(transform.position.x, 2, 16);
+        transform.position = new Vector3(transform.position.x, 2, zLocationLock);
 
         //Camera rotation section
-        xRotation -= vMouseVector.y * mouseSensitivity;
-        xRotation = Mathf.Clamp(xRotation, -90, 90);
-        yRotation += vMouseVector.x * mouseSensitivity;
-        yRotation = Mathf.Clamp(yRotation, 90, 270);
-        transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+        if(rotationEnabled)
+        {
+            xRotation -= vMouseVector.y * mouseSensitivity;
+            xRotation = Mathf.Clamp(xRotation, -90, 90);
+            yRotation += vMouseVector.x * mouseSensitivity;
+            if (!invertXClamp)
+            {
+                yRotation = Mathf.Clamp(yRotation, 90, 270);
+            }
+            else if (invertXClamp)
+            {
+                yRotation = Mathf.Clamp(yRotation, 270, 450);
+            }
+
+            transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+        }
+
     }
 
     //input functions return a value from player input

@@ -2,7 +2,7 @@
     "name": "PlayerInput",
     "maps": [
         {
-            "name": "Player",
+            "name": "PlayerKBM",
             "id": "cd2fb386-848a-40e3-82e1-344c84506f66",
             "actions": [
                 {
@@ -36,6 +36,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "StartGame",
+                    "type": "Value",
+                    "id": "082224f2-1a7f-427c-a66b-9c6d25bc2ba7",
+                    "expectedControlType": "Integer",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -45,7 +53,7 @@
                     "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "KBM",
                     "action": "Mouse",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -67,7 +75,7 @@
                     "path": "<Gamepad>/rightStick/up",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Mouse",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -78,7 +86,7 @@
                     "path": "<Gamepad>/rightStick/down",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Mouse",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -89,7 +97,7 @@
                     "path": "<Gamepad>/rightStick/left",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Mouse",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -100,7 +108,7 @@
                     "path": "<Gamepad>/rightStick/right",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Mouse",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -122,7 +130,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "KBM",
                     "action": "WASD Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -133,7 +141,7 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "KBM",
                     "action": "WASD Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -144,7 +152,7 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "KBM",
                     "action": "WASD Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -155,7 +163,7 @@
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "KBM",
                     "action": "WASD Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -177,7 +185,7 @@
                     "path": "<Gamepad>/leftStick/up",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "WASD Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -188,7 +196,7 @@
                     "path": "<Gamepad>/leftStick/down",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "WASD Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -199,7 +207,7 @@
                     "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "WASD Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -210,7 +218,7 @@
                     "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "WASD Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -221,7 +229,7 @@
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "KBM",
                     "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -232,7 +240,7 @@
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -247,11 +255,33 @@
                     "action": "SpawnObject",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "54eccf8e-de6f-4867-8d75-3cedcc71cffa",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KBM",
+                    "action": "StartGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "070abca8-e02b-4cf8-bbbf-a9393717171e",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "StartGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
         {
-            "name": "Player2",
+            "name": "PlayerController",
             "id": "723fcef9-4483-451c-a86a-1374e3d96e7a",
             "actions": [
                 {
@@ -502,6 +532,17 @@
     ],
     "controlSchemes": [
         {
+            "name": "Controller",
+            "bindingGroup": "Controller",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": true,
+                    "isOR": false
+                }
+            ]
+        },
+        {
             "name": "KBM",
             "bindingGroup": "KBM",
             "devices": [
@@ -512,7 +553,7 @@
                 },
                 {
                     "devicePath": "<Mouse>",
-                    "isOptional": true,
+                    "isOptional": false,
                     "isOR": false
                 }
             ]

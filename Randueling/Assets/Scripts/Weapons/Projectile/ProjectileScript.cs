@@ -22,11 +22,11 @@ public class ProjectileScript : MonoBehaviour
     {
         if(whoOwnsThis == 1)
         {
-            opposingTransform = GameObject.FindGameObjectWithTag("Player2").transform;
+            opposingTransform = GameObject.FindGameObjectWithTag("PlayerTwo").transform;
         }
         else
         {
-            opposingTransform = GameObject.FindGameObjectWithTag("Player1").transform;
+            opposingTransform = GameObject.FindGameObjectWithTag("PlayerOne").transform;
         }
         Vector3 newDirection = opposingTransform.position - transform.position;
         transform.forward = Vector3.Lerp(newDirection, transform.forward, 0.5f);

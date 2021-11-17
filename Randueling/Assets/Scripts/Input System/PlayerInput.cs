@@ -15,7 +15,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     ""name"": ""PlayerInput"",
     ""maps"": [
         {
-            ""name"": ""Player"",
+            ""name"": ""PlayerKBM"",
             ""id"": ""cd2fb386-848a-40e3-82e1-344c84506f66"",
             ""actions"": [
                 {
@@ -49,6 +49,14 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""StartGame"",
+                    ""type"": ""Value"",
+                    ""id"": ""082224f2-1a7f-427c-a66b-9c6d25bc2ba7"",
+                    ""expectedControlType"": ""Integer"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -58,7 +66,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KBM"",
                     ""action"": ""Mouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -80,7 +88,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/rightStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Controller"",
                     ""action"": ""Mouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -91,7 +99,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/rightStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Controller"",
                     ""action"": ""Mouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -102,7 +110,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/rightStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Controller"",
                     ""action"": ""Mouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -113,7 +121,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/rightStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Controller"",
                     ""action"": ""Mouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -135,7 +143,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KBM"",
                     ""action"": ""WASD Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -146,7 +154,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KBM"",
                     ""action"": ""WASD Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -157,7 +165,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KBM"",
                     ""action"": ""WASD Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -168,7 +176,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KBM"",
                     ""action"": ""WASD Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -190,7 +198,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/leftStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Controller"",
                     ""action"": ""WASD Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -201,7 +209,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Controller"",
                     ""action"": ""WASD Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -212,7 +220,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Controller"",
                     ""action"": ""WASD Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -223,7 +231,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Controller"",
                     ""action"": ""WASD Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -234,7 +242,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KBM"",
                     ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -245,7 +253,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Controller"",
                     ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -260,11 +268,33 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""action"": ""SpawnObject"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""54eccf8e-de6f-4867-8d75-3cedcc71cffa"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": ""StartGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""070abca8-e02b-4cf8-bbbf-a9393717171e"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""StartGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
         {
-            ""name"": ""Player2"",
+            ""name"": ""PlayerController"",
             ""id"": ""723fcef9-4483-451c-a86a-1374e3d96e7a"",
             ""actions"": [
                 {
@@ -515,6 +545,17 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     ],
     ""controlSchemes"": [
         {
+            ""name"": ""Controller"",
+            ""bindingGroup"": ""Controller"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Gamepad>"",
+                    ""isOptional"": true,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
             ""name"": ""KBM"",
             ""bindingGroup"": ""KBM"",
             ""devices"": [
@@ -525,25 +566,26 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 },
                 {
                     ""devicePath"": ""<Mouse>"",
-                    ""isOptional"": true,
+                    ""isOptional"": false,
                     ""isOR"": false
                 }
             ]
         }
     ]
 }");
-        // Player
-        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Mouse = m_Player.FindAction("Mouse", throwIfNotFound: true);
-        m_Player_WASDMovement = m_Player.FindAction("WASD Movement", throwIfNotFound: true);
-        m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
-        m_Player_SpawnObject = m_Player.FindAction("SpawnObject", throwIfNotFound: true);
-        // Player2
-        m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
-        m_Player2_Mouse = m_Player2.FindAction("Mouse", throwIfNotFound: true);
-        m_Player2_WASDMovement = m_Player2.FindAction("WASD Movement", throwIfNotFound: true);
-        m_Player2_Fire = m_Player2.FindAction("Fire", throwIfNotFound: true);
-        m_Player2_SpawnObject = m_Player2.FindAction("SpawnObject", throwIfNotFound: true);
+        // PlayerKBM
+        m_PlayerKBM = asset.FindActionMap("PlayerKBM", throwIfNotFound: true);
+        m_PlayerKBM_Mouse = m_PlayerKBM.FindAction("Mouse", throwIfNotFound: true);
+        m_PlayerKBM_WASDMovement = m_PlayerKBM.FindAction("WASD Movement", throwIfNotFound: true);
+        m_PlayerKBM_Fire = m_PlayerKBM.FindAction("Fire", throwIfNotFound: true);
+        m_PlayerKBM_SpawnObject = m_PlayerKBM.FindAction("SpawnObject", throwIfNotFound: true);
+        m_PlayerKBM_StartGame = m_PlayerKBM.FindAction("StartGame", throwIfNotFound: true);
+        // PlayerController
+        m_PlayerController = asset.FindActionMap("PlayerController", throwIfNotFound: true);
+        m_PlayerController_Mouse = m_PlayerController.FindAction("Mouse", throwIfNotFound: true);
+        m_PlayerController_WASDMovement = m_PlayerController.FindAction("WASD Movement", throwIfNotFound: true);
+        m_PlayerController_Fire = m_PlayerController.FindAction("Fire", throwIfNotFound: true);
+        m_PlayerController_SpawnObject = m_PlayerController.FindAction("SpawnObject", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -590,44 +632,49 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         asset.Disable();
     }
 
-    // Player
-    private readonly InputActionMap m_Player;
-    private IPlayerActions m_PlayerActionsCallbackInterface;
-    private readonly InputAction m_Player_Mouse;
-    private readonly InputAction m_Player_WASDMovement;
-    private readonly InputAction m_Player_Fire;
-    private readonly InputAction m_Player_SpawnObject;
-    public struct PlayerActions
+    // PlayerKBM
+    private readonly InputActionMap m_PlayerKBM;
+    private IPlayerKBMActions m_PlayerKBMActionsCallbackInterface;
+    private readonly InputAction m_PlayerKBM_Mouse;
+    private readonly InputAction m_PlayerKBM_WASDMovement;
+    private readonly InputAction m_PlayerKBM_Fire;
+    private readonly InputAction m_PlayerKBM_SpawnObject;
+    private readonly InputAction m_PlayerKBM_StartGame;
+    public struct PlayerKBMActions
     {
         private @PlayerInput m_Wrapper;
-        public PlayerActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Mouse => m_Wrapper.m_Player_Mouse;
-        public InputAction @WASDMovement => m_Wrapper.m_Player_WASDMovement;
-        public InputAction @Fire => m_Wrapper.m_Player_Fire;
-        public InputAction @SpawnObject => m_Wrapper.m_Player_SpawnObject;
-        public InputActionMap Get() { return m_Wrapper.m_Player; }
+        public PlayerKBMActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Mouse => m_Wrapper.m_PlayerKBM_Mouse;
+        public InputAction @WASDMovement => m_Wrapper.m_PlayerKBM_WASDMovement;
+        public InputAction @Fire => m_Wrapper.m_PlayerKBM_Fire;
+        public InputAction @SpawnObject => m_Wrapper.m_PlayerKBM_SpawnObject;
+        public InputAction @StartGame => m_Wrapper.m_PlayerKBM_StartGame;
+        public InputActionMap Get() { return m_Wrapper.m_PlayerKBM; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
-        public void SetCallbacks(IPlayerActions instance)
+        public static implicit operator InputActionMap(PlayerKBMActions set) { return set.Get(); }
+        public void SetCallbacks(IPlayerKBMActions instance)
         {
-            if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
+            if (m_Wrapper.m_PlayerKBMActionsCallbackInterface != null)
             {
-                @Mouse.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouse;
-                @Mouse.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouse;
-                @Mouse.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouse;
-                @WASDMovement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWASDMovement;
-                @WASDMovement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWASDMovement;
-                @WASDMovement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWASDMovement;
-                @Fire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                @Fire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                @Fire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                @SpawnObject.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpawnObject;
-                @SpawnObject.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpawnObject;
-                @SpawnObject.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpawnObject;
+                @Mouse.started -= m_Wrapper.m_PlayerKBMActionsCallbackInterface.OnMouse;
+                @Mouse.performed -= m_Wrapper.m_PlayerKBMActionsCallbackInterface.OnMouse;
+                @Mouse.canceled -= m_Wrapper.m_PlayerKBMActionsCallbackInterface.OnMouse;
+                @WASDMovement.started -= m_Wrapper.m_PlayerKBMActionsCallbackInterface.OnWASDMovement;
+                @WASDMovement.performed -= m_Wrapper.m_PlayerKBMActionsCallbackInterface.OnWASDMovement;
+                @WASDMovement.canceled -= m_Wrapper.m_PlayerKBMActionsCallbackInterface.OnWASDMovement;
+                @Fire.started -= m_Wrapper.m_PlayerKBMActionsCallbackInterface.OnFire;
+                @Fire.performed -= m_Wrapper.m_PlayerKBMActionsCallbackInterface.OnFire;
+                @Fire.canceled -= m_Wrapper.m_PlayerKBMActionsCallbackInterface.OnFire;
+                @SpawnObject.started -= m_Wrapper.m_PlayerKBMActionsCallbackInterface.OnSpawnObject;
+                @SpawnObject.performed -= m_Wrapper.m_PlayerKBMActionsCallbackInterface.OnSpawnObject;
+                @SpawnObject.canceled -= m_Wrapper.m_PlayerKBMActionsCallbackInterface.OnSpawnObject;
+                @StartGame.started -= m_Wrapper.m_PlayerKBMActionsCallbackInterface.OnStartGame;
+                @StartGame.performed -= m_Wrapper.m_PlayerKBMActionsCallbackInterface.OnStartGame;
+                @StartGame.canceled -= m_Wrapper.m_PlayerKBMActionsCallbackInterface.OnStartGame;
             }
-            m_Wrapper.m_PlayerActionsCallbackInterface = instance;
+            m_Wrapper.m_PlayerKBMActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Mouse.started += instance.OnMouse;
@@ -642,49 +689,52 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @SpawnObject.started += instance.OnSpawnObject;
                 @SpawnObject.performed += instance.OnSpawnObject;
                 @SpawnObject.canceled += instance.OnSpawnObject;
+                @StartGame.started += instance.OnStartGame;
+                @StartGame.performed += instance.OnStartGame;
+                @StartGame.canceled += instance.OnStartGame;
             }
         }
     }
-    public PlayerActions @Player => new PlayerActions(this);
+    public PlayerKBMActions @PlayerKBM => new PlayerKBMActions(this);
 
-    // Player2
-    private readonly InputActionMap m_Player2;
-    private IPlayer2Actions m_Player2ActionsCallbackInterface;
-    private readonly InputAction m_Player2_Mouse;
-    private readonly InputAction m_Player2_WASDMovement;
-    private readonly InputAction m_Player2_Fire;
-    private readonly InputAction m_Player2_SpawnObject;
-    public struct Player2Actions
+    // PlayerController
+    private readonly InputActionMap m_PlayerController;
+    private IPlayerControllerActions m_PlayerControllerActionsCallbackInterface;
+    private readonly InputAction m_PlayerController_Mouse;
+    private readonly InputAction m_PlayerController_WASDMovement;
+    private readonly InputAction m_PlayerController_Fire;
+    private readonly InputAction m_PlayerController_SpawnObject;
+    public struct PlayerControllerActions
     {
         private @PlayerInput m_Wrapper;
-        public Player2Actions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Mouse => m_Wrapper.m_Player2_Mouse;
-        public InputAction @WASDMovement => m_Wrapper.m_Player2_WASDMovement;
-        public InputAction @Fire => m_Wrapper.m_Player2_Fire;
-        public InputAction @SpawnObject => m_Wrapper.m_Player2_SpawnObject;
-        public InputActionMap Get() { return m_Wrapper.m_Player2; }
+        public PlayerControllerActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Mouse => m_Wrapper.m_PlayerController_Mouse;
+        public InputAction @WASDMovement => m_Wrapper.m_PlayerController_WASDMovement;
+        public InputAction @Fire => m_Wrapper.m_PlayerController_Fire;
+        public InputAction @SpawnObject => m_Wrapper.m_PlayerController_SpawnObject;
+        public InputActionMap Get() { return m_Wrapper.m_PlayerController; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(Player2Actions set) { return set.Get(); }
-        public void SetCallbacks(IPlayer2Actions instance)
+        public static implicit operator InputActionMap(PlayerControllerActions set) { return set.Get(); }
+        public void SetCallbacks(IPlayerControllerActions instance)
         {
-            if (m_Wrapper.m_Player2ActionsCallbackInterface != null)
+            if (m_Wrapper.m_PlayerControllerActionsCallbackInterface != null)
             {
-                @Mouse.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMouse;
-                @Mouse.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMouse;
-                @Mouse.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMouse;
-                @WASDMovement.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnWASDMovement;
-                @WASDMovement.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnWASDMovement;
-                @WASDMovement.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnWASDMovement;
-                @Fire.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnFire;
-                @Fire.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnFire;
-                @Fire.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnFire;
-                @SpawnObject.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnSpawnObject;
-                @SpawnObject.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnSpawnObject;
-                @SpawnObject.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnSpawnObject;
+                @Mouse.started -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnMouse;
+                @Mouse.performed -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnMouse;
+                @Mouse.canceled -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnMouse;
+                @WASDMovement.started -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnWASDMovement;
+                @WASDMovement.performed -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnWASDMovement;
+                @WASDMovement.canceled -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnWASDMovement;
+                @Fire.started -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnFire;
+                @Fire.performed -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnFire;
+                @Fire.canceled -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnFire;
+                @SpawnObject.started -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnSpawnObject;
+                @SpawnObject.performed -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnSpawnObject;
+                @SpawnObject.canceled -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnSpawnObject;
             }
-            m_Wrapper.m_Player2ActionsCallbackInterface = instance;
+            m_Wrapper.m_PlayerControllerActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Mouse.started += instance.OnMouse;
@@ -702,7 +752,16 @@ public class @PlayerInput : IInputActionCollection, IDisposable
             }
         }
     }
-    public Player2Actions @Player2 => new Player2Actions(this);
+    public PlayerControllerActions @PlayerController => new PlayerControllerActions(this);
+    private int m_ControllerSchemeIndex = -1;
+    public InputControlScheme ControllerScheme
+    {
+        get
+        {
+            if (m_ControllerSchemeIndex == -1) m_ControllerSchemeIndex = asset.FindControlSchemeIndex("Controller");
+            return asset.controlSchemes[m_ControllerSchemeIndex];
+        }
+    }
     private int m_KBMSchemeIndex = -1;
     public InputControlScheme KBMScheme
     {
@@ -712,14 +771,15 @@ public class @PlayerInput : IInputActionCollection, IDisposable
             return asset.controlSchemes[m_KBMSchemeIndex];
         }
     }
-    public interface IPlayerActions
+    public interface IPlayerKBMActions
     {
         void OnMouse(InputAction.CallbackContext context);
         void OnWASDMovement(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnSpawnObject(InputAction.CallbackContext context);
+        void OnStartGame(InputAction.CallbackContext context);
     }
-    public interface IPlayer2Actions
+    public interface IPlayerControllerActions
     {
         void OnMouse(InputAction.CallbackContext context);
         void OnWASDMovement(InputAction.CallbackContext context);
