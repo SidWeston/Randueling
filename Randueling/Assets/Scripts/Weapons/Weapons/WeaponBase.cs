@@ -14,7 +14,7 @@ public class WeaponBase : MonoBehaviour
     public bool isProjectile = true; //if false, the weapon will fire a raycast instead of a projectile
 
     public int magazineSize, bulletsLeft, bulletsShot, bulletsPerFire;
-    public float spread, timeBetweenShots, bulletVelocity;
+    public float spread, timeBetweenShots, bulletVelocity, reloadTime;
     public bool shooting, readyToShoot, reloading;
 
     private void Awake()
@@ -25,6 +25,7 @@ public class WeaponBase : MonoBehaviour
     void Start()
     {
         readyToShoot = true;
+        bulletsLeft = magazineSize;
     }
 
     // Update is called once per frame
@@ -36,19 +37,34 @@ public class WeaponBase : MonoBehaviour
     public virtual void FireWeapon(Vector3 directionToFire)
     {
 
-        if (isProjectile && readyToShoot)
+        if (isProjectile && readyToShoot && bulletsLeft > 0)
         {
 
             readyToShoot = false;
+            bulletsLeft--;
 
             GameObject currentBullet = Instantiate(bullet, bulletSpawnLocation.transform.position, Quaternion.identity);
             currentBullet.transform.forward = directionToFire.normalized;
             //Temp variable to decide bullet owner, change this later!
-            currentBullet.GetComponent<ProjectileScript>().whoOwnsThis = 1;
-            currentBullet.GetComponent<ProjectileScript>().bulletSpeed = bulletVelocity;
+            GameObject whoFired = this.transform.parent.gameObject;
+            if(whoFired.gameObject.tag == "PlayerOne")
+            {
+                currentBullet.GetComponent<ProjectileScript>().whoOwnsThis = 1;
+                currentBullet.GetComponent<ProjectileScript>().bulletSpeed = bulletVelocity;
+            }
+            else if(whoFired.gameObject.tag == "PlayerTwo")
+            {
+                currentBullet.GetComponent<ProjectileScript>().whoOwnsThis = 2;
+                currentBullet.GetComponent<ProjectileScript>().bulletSpeed = bulletVelocity;
+            }
 
+           
             Invoke("ResetShot", timeBetweenShots);
 
+        }
+        else if(bulletsLeft == 0)
+        {
+            Invoke("Reload", reloadTime);
         }
         else
         {
@@ -65,7 +81,8 @@ public class WeaponBase : MonoBehaviour
     public virtual void Reload()
     {
         //TODO: add a cooldown on the reload until the reload animation is finished
-        
+        bulletsLeft = magazineSize;
+
     }
 
 }

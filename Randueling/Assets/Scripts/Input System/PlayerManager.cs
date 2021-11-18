@@ -43,10 +43,8 @@ public class PlayerManager : MonoBehaviour
     {
         GameObject playerToFind;
 
-        Debug.Log("Player Joined");
-        if(playerCount == 0)
+        if(playerCount == 0) //player one
         {
-            Debug.Log("Player One");
             playerCount++;
 
             playerToFind = GameObject.FindGameObjectWithTag("PlayerOne"); //finds the player in the scene, this will have the control scheme information needed to play
@@ -57,10 +55,8 @@ public class PlayerManager : MonoBehaviour
             playerPrefab.gameObject.tag = "PlayerTwo";
             pInputManager.playerPrefab = playerPrefab;
         }
-        else if(playerCount == 1)
+        else if(playerCount == 1) //player two
         {
-            Debug.Log("Player Two");
-
             playerToFind = GameObject.FindGameObjectWithTag("PlayerTwo");
 
             playerTwo = playerToFind;
@@ -74,9 +70,8 @@ public class PlayerManager : MonoBehaviour
 
     public void StartGame()
     {
-        if (!sceneChanged)
+        if (!sceneChanged) //bool stops the scene from being reset during play
         {
-            Debug.Log("Button Pressed");
             sceneChanged = true;
             SceneManager.LoadScene(1);
         }

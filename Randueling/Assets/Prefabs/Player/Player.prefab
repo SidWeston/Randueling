@@ -129,13 +129,14 @@ MonoBehaviour:
   bullet: {fileID: 2334920274381384768, guid: 008b206904ae586448c2e08602d1a308, type: 3}
   doesRichochet: 0
   isProjectile: 1
-  magazineSize: 0
+  magazineSize: 6
   bulletsLeft: 0
   bulletsShot: 0
   bulletsPerFire: 0
   spread: 0
   timeBetweenShots: 0.5
-  bulletVelocity: 50
+  bulletVelocity: 20
+  reloadTime: 5
   shooting: 0
   readyToShoot: 0
   reloading: 0
@@ -190,9 +191,9 @@ Camera:
   m_FocalLength: 21.123817
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.5
+    x: 0
     y: 0
-    width: 0.5
+    width: 1
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -317,7 +318,6 @@ GameObject:
   - component: {fileID: 2046647855572419314}
   - component: {fileID: 6660181352921181725}
   - component: {fileID: 7346872110195730716}
-  - component: {fileID: 8291617823697705667}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -389,20 +389,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &8291617823697705667
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5247796962337734600}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6409169921545664518
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,7 +577,10 @@ MonoBehaviour:
   mouseSensitivity: 0.572
   playerController: {fileID: 1365043195908439502}
   playerCamera: {fileID: 7629180611115419383}
-  fMoveSpeed: 10
+  fMoveSpeed: 7.5
+  zLocationLock: 0
+  invertXClamp: 0
+  rotationEnabled: 0
 --- !u!114 &1009170398335230423
 MonoBehaviour:
   m_ObjectHideFlags: 0
