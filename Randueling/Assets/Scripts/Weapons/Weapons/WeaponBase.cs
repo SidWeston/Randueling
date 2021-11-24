@@ -5,6 +5,8 @@ using UnityEngine;
 public class WeaponBase : MonoBehaviour
 {
 
+    public string weaponName; //name of the weapon
+
     //locations where the bullet class can be instantiated
     public GameObject bulletSpawnLocation; //on most weapons, there will only be one location but some weapons will have multiple barrels
     public GameObject bullet; //the bullet that is spawned when the weapon is fired
@@ -13,7 +15,7 @@ public class WeaponBase : MonoBehaviour
     //if the weapon is a projectile (bullet has travel time)
     public bool isProjectile = true; //if false, the weapon will fire a raycast instead of a projectile
 
-    public int magazineSize, bulletsLeft, bulletsShot, bulletsPerFire;
+    public int magazineSize, bulletsLeft;
     public float spread, timeBetweenShots, bulletVelocity, reloadTime;
     public bool shooting, readyToShoot, reloading;
 
@@ -34,42 +36,8 @@ public class WeaponBase : MonoBehaviour
     }
 
     //virtual functions to be overridden if needed on specific weapons
-    public virtual void FireWeapon(Vector3 directionToFire)
+    public virtual void FireWeapon(Vector3 directionToFire, GameObject whoFired)
     {
-
-        if (isProjectile && readyToShoot && bulletsLeft > 0)
-        {
-
-            readyToShoot = false;
-            bulletsLeft--;
-
-            GameObject currentBullet = Instantiate(bullet, bulletSpawnLocation.transform.position, Quaternion.identity);
-            currentBullet.transform.forward = directionToFire.normalized;
-            //Temp variable to decide bullet owner, change this later!
-            GameObject whoFired = this.transform.parent.gameObject;
-            if(whoFired.gameObject.tag == "PlayerOne")
-            {
-                currentBullet.GetComponent<ProjectileScript>().whoOwnsThis = 1;
-                currentBullet.GetComponent<ProjectileScript>().bulletSpeed = bulletVelocity;
-            }
-            else if(whoFired.gameObject.tag == "PlayerTwo")
-            {
-                currentBullet.GetComponent<ProjectileScript>().whoOwnsThis = 2;
-                currentBullet.GetComponent<ProjectileScript>().bulletSpeed = bulletVelocity;
-            }
-
-           
-            Invoke("ResetShot", timeBetweenShots);
-
-        }
-        else if(bulletsLeft == 0)
-        {
-            Invoke("Reload", reloadTime);
-        }
-        else
-        {
-            //TODO: Implement Raycasts
-        }
 
     }
 
