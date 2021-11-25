@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 0.50931126, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8567953309389724406}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &267154491005028544
 MeshFilter:
@@ -112,7 +112,7 @@ Transform:
   m_LocalScale: {x: 2.3645003, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8567953309389724406}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5779577665715138367
 MeshFilter:
@@ -194,7 +194,7 @@ Transform:
   m_LocalScale: {x: 0.6562662, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8567953309389724406}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6664695052006950266
 MeshFilter:
@@ -276,7 +276,7 @@ Transform:
   m_LocalScale: {x: 0.20545998, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8567953309389724406}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3926102647423876661
 MeshFilter:
@@ -358,7 +358,7 @@ Transform:
   m_LocalScale: {x: 0.5376467, y: 0.67059296, z: 0.78684396}
   m_Children: []
   m_Father: {fileID: 8567953309389724406}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &372586309188489037
 MeshFilter:
@@ -440,7 +440,7 @@ Transform:
   m_LocalScale: {x: 2.3645003, y: 1, z: 0.54054916}
   m_Children: []
   m_Father: {fileID: 8567953309389724406}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8535826087895178879
 MeshFilter:
@@ -492,36 +492,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &5989298307120145606
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 358048470806006176}
-  m_Layer: 0
-  m_Name: BullletSpawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &358048470806006176
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5989298307120145606}
-  m_LocalRotation: {x: -0, y: -0.9945043, z: 0, w: 0.10469611}
-  m_LocalPosition: {x: -0.064, y: 0.294, z: -0.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8567953309389724406}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6054608577552271529
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,7 +522,7 @@ Transform:
   m_LocalScale: {x: 2.3645003, y: 1, z: 0.54054916}
   m_Children: []
   m_Father: {fileID: 8567953309389724406}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9118205896572830402
 MeshFilter:
@@ -634,7 +604,7 @@ Transform:
   m_LocalScale: {x: 0.5486918, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8567953309389724406}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7301022914603698365
 MeshFilter:
@@ -716,7 +686,7 @@ Transform:
   m_LocalScale: {x: 0.8286666, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8567953309389724406}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3853557872692717229
 MeshFilter:
@@ -796,7 +766,6 @@ Transform:
   m_LocalPosition: {x: 0.411, y: 0.218, z: 0.739}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 358048470806006176}
   - {fileID: 8475470324207315806}
   - {fileID: 2144207746162288097}
   - {fileID: 873239077231008719}
@@ -822,7 +791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Repeater Rifle
-  bulletSpawnLocation: {fileID: 5989298307120145606}
+  bulletSpawnLocation: {fileID: 0}
   bullet: {fileID: 2334920274381384768, guid: 008b206904ae586448c2e08602d1a308, type: 3}
   doesRichochet: 1
   isProjectile: 1
