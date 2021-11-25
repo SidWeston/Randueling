@@ -343,7 +343,7 @@ PrefabInstance:
     - target: {fileID: 8479370890461755633, guid: 58c64ef747180e14d8833d0189d43e2b, type: 3}
       propertyPath: m_PlayerPrefab
       value: 
-      objectReference: {fileID: 6409169921545664518, guid: 367ffdc657dfb5841a84c38bebda4299, type: 3}
+      objectReference: {fileID: 582078421917394764, guid: feffd273b5dadb841b28622db45b0224, type: 3}
     - target: {fileID: 8479370890461755633, guid: 58c64ef747180e14d8833d0189d43e2b, type: 3}
       propertyPath: m_PlayerJoinedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -395,6 +395,6 @@ PrefabInstance:
     - target: {fileID: 8479370890461755639, guid: 58c64ef747180e14d8833d0189d43e2b, type: 3}
       propertyPath: playerPrefab
       value: 
-      objectReference: {fileID: 6409169921545664518, guid: 367ffdc657dfb5841a84c38bebda4299, type: 3}
+      objectReference: {fileID: 582078421917394764, guid: feffd273b5dadb841b28622db45b0224, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58c64ef747180e14d8833d0189d43e2b, type: 3}

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WeaponBase : MonoBehaviour
 {
+    //name of the weapon
+    public string weaponName;
 
     //locations where the bullet class can be instantiated
     public GameObject bulletSpawnLocation; //on most weapons, there will only be one location but some weapons will have multiple barrels
@@ -14,8 +16,12 @@ public class WeaponBase : MonoBehaviour
     public bool isProjectile = true; //if false, the weapon will fire a raycast instead of a projectile
 
     public int magazineSize, bulletsLeft, bulletsShot, bulletsPerFire;
-    public float spread, timeBetweenShots, bulletVelocity, reloadTime;
+    [Range(0, 0.2f)]
+    public float spread; 
+    public float timeBetweenShots, bulletVelocity, reloadTime;
     public bool shooting, readyToShoot, reloading;
+
+    public PickUpScript pickupScript;
 
     private void Awake()
     {
@@ -39,12 +45,15 @@ public class WeaponBase : MonoBehaviour
 
         if (isProjectile && readyToShoot && bulletsLeft > 0)
         {
+            //pickupScript.RotReact(50);
 
             readyToShoot = false;
             bulletsLeft--;
 
             GameObject currentBullet = Instantiate(bullet, bulletSpawnLocation.transform.position, Quaternion.identity);
+            float spreadAmount = Random.Range(-spread, spread);
             currentBullet.transform.forward = directionToFire.normalized;
+            currentBullet.transform.forward += new Vector3(spreadAmount, 0, 0);
             //Temp variable to decide bullet owner, change this later!
             GameObject whoFired = this.transform.parent.gameObject;
             if(whoFired.gameObject.tag == "PlayerOne")
@@ -62,8 +71,10 @@ public class WeaponBase : MonoBehaviour
             Invoke("ResetShot", timeBetweenShots);
 
         }
-        else if(bulletsLeft == 0)
+        else if(bulletsLeft == 0 && !reloading)
         {
+            reloading = true;
+            pickupScript.Reload();
             Invoke("Reload", reloadTime);
         }
         else
@@ -82,7 +93,8 @@ public class WeaponBase : MonoBehaviour
     {
         //TODO: add a cooldown on the reload until the reload animation is finished
         bulletsLeft = magazineSize;
-
+        reloading = false;
+        pickupScript.Reload();
     }
 
 }

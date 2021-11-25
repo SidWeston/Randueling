@@ -17,7 +17,10 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private CharacterController playerController;
     [SerializeField] private Camera playerCamera;
-    [SerializeField] private float fMoveSpeed;
+    [SerializeField] private float fMoveSpeed, dodgeLength;
+    private float dodgeVelocity = 0.0f;
+    [SerializeField] private float dodgeCharges;
+    [SerializeField] private float dodgeRechargeRate;
 
     public float zLocationLock;
     public bool invertXClamp = false;
@@ -32,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //Left and Right(A and D) movement
-        Vector3 vMovementVector = transform.right * vMovement.x + transform.forward * vMovement.y;
+        Vector3 vMovementVector = transform.forward * dodgeVelocity + transform.right* dodgeVelocity;
         playerController.Move(vMovementVector * fMoveSpeed * Time.deltaTime);
         //Keeps player on single axis
         transform.position = new Vector3(transform.position.x, 2, zLocationLock);
@@ -55,13 +58,39 @@ public class PlayerMovement : MonoBehaviour
             transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
         }
 
+        dodgeVelocity = Mathf.Lerp(dodgeVelocity, 0, 0.1f);
+
+        if(dodgeCharges < 3)
+        {
+            dodgeCharges += dodgeRechargeRate * Time.deltaTime;
+        }
+
+    }
+
+
+    void Dodge()
+    {
+        if(vMovement.x > 0)
+        {
+            dodgeVelocity = 5;
+        }
+        else if(vMovement.x < 0)
+        {
+            dodgeVelocity = -5;
+        }
+        dodgeCharges -= 1;
     }
 
     //input functions return a value from player input
     public void OnMove(InputAction.CallbackContext context)
     {
         vMovement = context.ReadValue<Vector2>();
+        if (dodgeCharges >= 1)
+        {
+            Dodge();
+        }
     }
+   
 
     public void OnMouse(InputAction.CallbackContext context)
     {

@@ -18,10 +18,10 @@ MonoBehaviour:
     value: 1
   darkColour:
     overrideState: 1
-    value: {r: 0, g: 0, b: 0, a: 1}
+    value: {r: 0.14901961, g: 0.047058824, b: 0.043137256, a: 1}
   lightColour:
     overrideState: 1
-    value: {r: 0.010012442, g: 0.3745898, b: 0.7075472, a: 1}
+    value: {r: 1, g: 0.8745098, b: 0.78431374, a: 1}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
