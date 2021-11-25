@@ -21,7 +21,8 @@ public class SemiAutomaticWeapon : WeaponBase
             //THE BULLET SPAWN LOCATION GAME OBJECT IN THE PLAYER PREFAB MUST ALWAYS BE THE FIRST CHILD OBJECT
             //IF IT ISNT THE FIRST CHILD OBJECT THE GAME WILL BREAK
             //IMPORTANT!!!
-            bulletSpawnLocation = transform.parent.GetChild(0).gameObject; 
+            //bulletSpawnLocation = transform.parent.GetChild(0).gameObject;
+            Debug.Log("bababooey");
         }
     }
 
@@ -38,6 +39,7 @@ public class SemiAutomaticWeapon : WeaponBase
             readyToShoot = false;
             bulletsLeft--;
 
+            Debug.Log(bulletSpawnLocation);
             GameObject currentBullet = Instantiate(bullet, bulletSpawnLocation.transform.position, Quaternion.identity);
             currentBullet.transform.forward = directionToFire.normalized;
             if (whoFired.gameObject.tag == "PlayerOne")
