@@ -45,7 +45,7 @@ public class WeaponBase : MonoBehaviour
 
         if (isProjectile && readyToShoot && bulletsLeft > 0)
         {
-            //pickupScript.RotReact(50);
+            pickupScript.RotReact(50);
 
             readyToShoot = false;
             bulletsLeft--;

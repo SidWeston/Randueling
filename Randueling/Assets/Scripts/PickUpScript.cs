@@ -26,12 +26,10 @@ public class PickUpScript : MonoBehaviour {
 
 	private Vector3 targetRot;
 	private Vector3 reloadRot;
-	private float targetLerp = 0;
-	private float rotLerp = 1;
-	private float rotAngle;
+	float rotRot = 0.0f;
 	
 	private Vector3 velocity;
-	private float rotateVelocity;
+	private Vector3 rotateVelocity;
 	#endregion
 
 	#region Private Functions
@@ -40,7 +38,7 @@ public class PickUpScript : MonoBehaviour {
 		targetPos = transform.localPosition;
 		reloadPos = targetPos - new Vector3(0,reloadLowerLength,0);
 
-		targetRot = transform.forward;
+		targetRot = transform.localRotation.eulerAngles;
 		reloadRot = targetRot - new Vector3(reloadDipAngle,0,0);
 	}
 
@@ -51,10 +49,6 @@ public class PickUpScript : MonoBehaviour {
 		transform.localPosition += velocity * Time.deltaTime;
 
 		//Rotate item towards where it should be
-		//rotateVelocity += (targetLerp - rotateVelocity) * spring;
-		//rotateVelocity -= rotateVelocity * drag;
-		//rotAngle = Mathf.Lerp(rotAngle,targetLerp,rotateVelocity);
-		//Debug.Log(rotateVelocity);
 		
 	}
 	#endregion
@@ -68,7 +62,7 @@ public class PickUpScript : MonoBehaviour {
 
 	public void RotReact(float force)
     {
-		//rotateVelocity += 1.0f * force;
+		rotateVelocity += Vector3.right * force;
     }
 
 	public void Reload()
