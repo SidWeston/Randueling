@@ -17,6 +17,7 @@ public class PlayerWeapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
@@ -39,13 +40,8 @@ public class PlayerWeapon : MonoBehaviour
             //    targetPoint = rayToScreen.GetPoint(75); //gets a vector3 point in the direction of the raycast that is far away from the player
             //}
             //Vector3 direction = targetPoint - bulletSpawnLocation.transform.position;
-            
-            if(bulletSpawnLocation == null)
-            {
-                bulletSpawnLocation = currentWeapon.GetComponent<WeaponBase>().bulletSpawnLocation;
-            }
-            currentWeapon.GetComponent<WeaponBase>().FireWeapon(bulletSpawnLocation.transform.position, this.gameObject);
 
+            currentWeapon.GetComponent<WeaponBase>().FireWeapon(bulletSpawnLocation.transform.forward);
         }
     }
 
