@@ -20,6 +20,7 @@ public class WeaponBase : MonoBehaviour
     public float spread; 
     public float timeBetweenShots, bulletVelocity, reloadTime;
     public bool shooting, readyToShoot, reloading;
+    public float recoil;
 
     public PickUpScript pickupScript;
 
@@ -45,7 +46,7 @@ public class WeaponBase : MonoBehaviour
 
         if (isProjectile && readyToShoot && bulletsLeft > 0)
         {
-            pickupScript.RotReact(50);
+            pickupScript.RotReact(recoil);
 
             readyToShoot = false;
             bulletsLeft--;

@@ -18,18 +18,24 @@ public class PickUpScript : MonoBehaviour {
 	[SerializeField]
 	[Range(0.01f, 0.16f)]
 	private float drag = 0.06f;
+
+	[SerializeField]
+	[Range(0.5f, 50.0f)]
+	private float Rspring = 2f;
+	[SerializeField]
+	[Range(0.01f, 0.26f)]
+	private float Rdrag = 0.06f;
 	#endregion
 
 	#region Variable Declarations
 	private Vector3 targetPos;
 	private Vector3 reloadPos;
 
-	private Vector3 targetRot;
-	private Vector3 reloadRot;
-	float rotRot = 0.0f;
+	private float targetRot;
+	private float reloadRot;
 	
 	private Vector3 velocity;
-	private Vector3 rotateVelocity;
+	private float rotateVelocity;
 	#endregion
 
 	#region Private Functions
@@ -38,8 +44,8 @@ public class PickUpScript : MonoBehaviour {
 		targetPos = transform.localPosition;
 		reloadPos = targetPos - new Vector3(0,reloadLowerLength,0);
 
-		targetRot = transform.localRotation.eulerAngles;
-		reloadRot = targetRot - new Vector3(reloadDipAngle,0,0);
+		targetRot = transform.localRotation.x;
+		reloadRot = Quaternion.AngleAxis(-reloadDipAngle, transform.right).x;
 	}
 
 	private void FixedUpdate() {
@@ -49,7 +55,9 @@ public class PickUpScript : MonoBehaviour {
 		transform.localPosition += velocity * Time.deltaTime;
 
 		//Rotate item towards where it should be
-		
+		rotateVelocity += (targetRot - transform.localRotation.x) * Rspring;
+		rotateVelocity -= rotateVelocity * Rdrag;
+		transform.Rotate(rotateVelocity, 0, 0, Space.Self);
 	}
 	#endregion
 
@@ -62,7 +70,7 @@ public class PickUpScript : MonoBehaviour {
 
 	public void RotReact(float force)
     {
-		rotateVelocity += Vector3.right * force;
+		rotateVelocity += force;
     }
 
 	public void Reload()
@@ -71,9 +79,9 @@ public class PickUpScript : MonoBehaviour {
 		targetPos = reloadPos;
 		reloadPos = tempVec;
 
-		//tempVec = targetRot;
-		//targetRot = reloadRot;
-		//reloadRot = tempVec;
+		float tempRot = targetRot;
+		targetRot = reloadRot;
+		reloadRot = tempRot;
 	}
 
 

@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     private float dodgeVelocity = 0.0f;
     [SerializeField] private float dodgeCharges;
     [SerializeField] private float dodgeRechargeRate;
+    public float dodgeCooldown;
+    [SerializeField] private float dodgeCooldownRate;
 
     public float zLocationLock;
     public bool invertXClamp = false;
@@ -64,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
         {
             dodgeCharges += dodgeRechargeRate * Time.deltaTime;
         }
+        dodgeCooldown -= Time.deltaTime;
 
     }
 
@@ -72,11 +75,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if(vMovement.x > 0)
         {
-            dodgeVelocity = 5;
+            dodgeVelocity = dodgeLength;
         }
         else if(vMovement.x < 0)
         {
-            dodgeVelocity = -5;
+            dodgeVelocity = -dodgeLength;
         }
         dodgeCharges -= 1;
     }
@@ -85,9 +88,10 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         vMovement = context.ReadValue<Vector2>();
-        if (dodgeCharges >= 1)
+        if (dodgeCharges >= 1 && dodgeCooldown < 0)
         {
             Dodge();
+            dodgeCooldown = dodgeCooldownRate;
         }
     }
    

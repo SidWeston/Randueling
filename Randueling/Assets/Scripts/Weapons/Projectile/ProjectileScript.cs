@@ -31,8 +31,6 @@ public class ProjectileScript : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
 
-        Debug.Log("Collided");
-
         if(collision.gameObject.tag == "PlayerOne" || collision.gameObject.tag == "PlayerTwo")
         {
             Debug.Log("Hit" + collision.gameObject.tag);

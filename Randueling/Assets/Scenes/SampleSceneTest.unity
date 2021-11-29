@@ -994,6 +994,8 @@ MonoBehaviour:
   - {fileID: 9161605240953866660, guid: 283bbf39febd60344a28254b6da6aa33, type: 3}
   - {fileID: 194305667152320364, guid: 326127e53bc23d940ad48692662325b8, type: 3}
   - {fileID: 7029693519533652154, guid: 00da58722fa4a734dab5b9e97ef91351, type: 3}
+  - {fileID: 2280419344458439582, guid: 18c0ced90921914429c2321db012ba7a, type: 3}
+  - {fileID: 6151204814764489133, guid: e8e24b8ea5ac98245bbe3527b2435b90, type: 3}
   center: {x: 1.17, y: 0.8, z: 4}
   size: {x: 11.78, y: 0.5, z: 20}
   shouldSpawn: 0

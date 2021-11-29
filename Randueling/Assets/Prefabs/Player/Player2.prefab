@@ -189,9 +189,11 @@ MonoBehaviour:
   playerController: {fileID: 4761321469252280964}
   playerCamera: {fileID: 4107929869130897853}
   fMoveSpeed: 7.5
-  dodgeLength: 0
+  dodgeLength: 10
   dodgeCharges: 3
   dodgeRechargeRate: 1
+  dodgeCooldown: 0
+  dodgeCooldownRate: 0.35
   zLocationLock: 0
   invertXClamp: 0
   rotationEnabled: 0
@@ -513,6 +515,10 @@ PrefabInstance:
       value: Revolver
       objectReference: {fileID: 0}
     - target: {fileID: 4445241104931722787, guid: a7268a259c290774db8cc73d75afc01d, type: 3}
+      propertyPath: recoil
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4445241104931722787, guid: a7268a259c290774db8cc73d75afc01d, type: 3}
       propertyPath: pickupScript
       value: 
       objectReference: {fileID: 2034103936638864866}
@@ -525,12 +531,20 @@ PrefabInstance:
       value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 4800699154518276298, guid: a7268a259c290774db8cc73d75afc01d, type: 3}
+      propertyPath: Rdrag
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4800699154518276298, guid: a7268a259c290774db8cc73d75afc01d, type: 3}
+      propertyPath: Rspring
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4800699154518276298, guid: a7268a259c290774db8cc73d75afc01d, type: 3}
       propertyPath: reloadDipAngle
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4800699154518276298, guid: a7268a259c290774db8cc73d75afc01d, type: 3}
       propertyPath: reloadLowerLength
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5673768398375773108, guid: a7268a259c290774db8cc73d75afc01d, type: 3}
       propertyPath: m_RootOrder
