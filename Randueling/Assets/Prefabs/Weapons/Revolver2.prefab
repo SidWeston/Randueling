@@ -1158,6 +1158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5896165442675496752}
   - component: {fileID: 6222244356068618457}
+  - component: {fileID: 4185778030260083276}
   m_Layer: 0
   m_Name: Revolver2
   m_TagString: Untagged
@@ -1225,6 +1226,26 @@ MonoBehaviour:
   shooting: 0
   readyToShoot: 0
   reloading: 0
+  recoil: 0
+  pickupScript: {fileID: 0}
+--- !u!114 &4185778030260083276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6528165123162049930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978e32e8ff0c2c648a70c4e3247ffce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reloadDipAngle: 3
+  reloadLowerLength: 0.1
+  spring: 2
+  drag: 0.12
+  Rspring: 40
+  Rdrag: 0.2
 --- !u!1 &6982533119823598448
 GameObject:
   m_ObjectHideFlags: 0
