@@ -57,6 +57,14 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Integer"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""MenuSpace"",
+                    ""type"": ""Button"",
+                    ""id"": ""33a38a40-a583-42c5-b451-960042314ad4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -288,6 +296,28 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Controller"",
                     ""action"": ""StartGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""472e8e80-e407-4dc0-8175-e244c4a2d87d"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MenuSpace"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""69cc7111-4ae5-47ac-9ca2-a5cb76813c5b"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MenuSpace"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -580,6 +610,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         m_PlayerKBM_Fire = m_PlayerKBM.FindAction("Fire", throwIfNotFound: true);
         m_PlayerKBM_SpawnObject = m_PlayerKBM.FindAction("SpawnObject", throwIfNotFound: true);
         m_PlayerKBM_StartGame = m_PlayerKBM.FindAction("StartGame", throwIfNotFound: true);
+        m_PlayerKBM_MenuSpace = m_PlayerKBM.FindAction("MenuSpace", throwIfNotFound: true);
         // PlayerController
         m_PlayerController = asset.FindActionMap("PlayerController", throwIfNotFound: true);
         m_PlayerController_Mouse = m_PlayerController.FindAction("Mouse", throwIfNotFound: true);
@@ -640,6 +671,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerKBM_Fire;
     private readonly InputAction m_PlayerKBM_SpawnObject;
     private readonly InputAction m_PlayerKBM_StartGame;
+    private readonly InputAction m_PlayerKBM_MenuSpace;
     public struct PlayerKBMActions
     {
         private @PlayerInput m_Wrapper;
@@ -649,6 +681,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         public InputAction @Fire => m_Wrapper.m_PlayerKBM_Fire;
         public InputAction @SpawnObject => m_Wrapper.m_PlayerKBM_SpawnObject;
         public InputAction @StartGame => m_Wrapper.m_PlayerKBM_StartGame;
+        public InputAction @MenuSpace => m_Wrapper.m_PlayerKBM_MenuSpace;
         public InputActionMap Get() { return m_Wrapper.m_PlayerKBM; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -673,6 +706,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @StartGame.started -= m_Wrapper.m_PlayerKBMActionsCallbackInterface.OnStartGame;
                 @StartGame.performed -= m_Wrapper.m_PlayerKBMActionsCallbackInterface.OnStartGame;
                 @StartGame.canceled -= m_Wrapper.m_PlayerKBMActionsCallbackInterface.OnStartGame;
+                @MenuSpace.started -= m_Wrapper.m_PlayerKBMActionsCallbackInterface.OnMenuSpace;
+                @MenuSpace.performed -= m_Wrapper.m_PlayerKBMActionsCallbackInterface.OnMenuSpace;
+                @MenuSpace.canceled -= m_Wrapper.m_PlayerKBMActionsCallbackInterface.OnMenuSpace;
             }
             m_Wrapper.m_PlayerKBMActionsCallbackInterface = instance;
             if (instance != null)
@@ -692,6 +728,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @StartGame.started += instance.OnStartGame;
                 @StartGame.performed += instance.OnStartGame;
                 @StartGame.canceled += instance.OnStartGame;
+                @MenuSpace.started += instance.OnMenuSpace;
+                @MenuSpace.performed += instance.OnMenuSpace;
+                @MenuSpace.canceled += instance.OnMenuSpace;
             }
         }
     }
@@ -778,6 +817,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         void OnFire(InputAction.CallbackContext context);
         void OnSpawnObject(InputAction.CallbackContext context);
         void OnStartGame(InputAction.CallbackContext context);
+        void OnMenuSpace(InputAction.CallbackContext context);
     }
     public interface IPlayerControllerActions
     {

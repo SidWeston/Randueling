@@ -44,6 +44,14 @@
                     "expectedControlType": "Integer",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "MenuSpace",
+                    "type": "Button",
+                    "id": "33a38a40-a583-42c5-b451-960042314ad4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -275,6 +283,28 @@
                     "processors": "",
                     "groups": "Controller",
                     "action": "StartGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "472e8e80-e407-4dc0-8175-e244c4a2d87d",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MenuSpace",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "69cc7111-4ae5-47ac-9ca2-a5cb76813c5b",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MenuSpace",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
