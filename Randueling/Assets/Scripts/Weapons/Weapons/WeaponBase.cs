@@ -38,6 +38,10 @@ public class WeaponBase : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
+        if(!bulletSpawnLocation)
+        {
+            bulletSpawnLocation = transform.parent.GetChild(0).gameObject;
+        }
     }
 
     //virtual functions to be overridden if needed on specific weapons
@@ -56,7 +60,7 @@ public class WeaponBase : MonoBehaviour
             currentBullet.transform.forward = directionToFire.normalized;
             currentBullet.transform.forward += new Vector3(spreadAmount, 0, 0);
             //Temp variable to decide bullet owner, change this later!
-            GameObject whoFired = this.transform.parent.gameObject;
+            GameObject whoFired = transform.parent.gameObject;
             if(whoFired.gameObject.tag == "PlayerOne")
             {
                 currentBullet.GetComponent<ProjectileScript>().whoOwnsThis = 1;

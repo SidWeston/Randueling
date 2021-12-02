@@ -7,6 +7,7 @@ public class PlayerWeapon : MonoBehaviour
 {
 
     public GameObject currentWeapon; //the weapon the player currently has
+    public GameObject weaponLocation;
 
     //unity input system converts input actions to variables
     private float fireWeapon;

@@ -18,6 +18,9 @@ public class PlayerManager : MonoBehaviour
 
     public GameObject playerOne, playerTwo;
 
+    private int currentSceneIndex = 0;
+    private float sceneChangeCooldown = 2.0f;
+
     //UI Stuff
     //public Image controllerConnected;
     //public Image mkConnected;
@@ -36,7 +39,14 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (sceneChanged)
+        {
+            sceneChangeCooldown -= Time.deltaTime;
+            if(sceneChangeCooldown <= 0)
+            {
+                sceneChanged = false;
+            }
+        }
     }
 
     public void OnPlayerJoined()
@@ -70,11 +80,22 @@ public class PlayerManager : MonoBehaviour
 
     public void StartGame()
     {
-        if (!sceneChanged) //bool stops the scene from being reset during play
+        if(!sceneChanged)
         {
-            sceneChanged = true;
-            SceneManager.LoadScene(1);
+            if (currentSceneIndex == 0) //bool stops the scene from being reset during play
+            {
+                sceneChanged = true;
+                currentSceneIndex = 1;
+                SceneManager.LoadScene(1);
+            }
+            else if (currentSceneIndex == 1)
+            {
+                sceneChanged = true;
+                currentSceneIndex = 2;
+                SceneManager.LoadScene(2);
+            }
         }
+
     }
 
 }
