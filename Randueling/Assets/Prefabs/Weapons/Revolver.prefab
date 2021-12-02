@@ -113,8 +113,6 @@ MonoBehaviour:
   shooting: 0
   readyToShoot: 0
   reloading: 0
-  recoil: 0
-  pickupScript: {fileID: 0}
 --- !u!114 &4800699154518276298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,12 +125,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978e32e8ff0c2c648a70c4e3247ffce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadDipAngle: 3
-  reloadLowerLength: 0.1
+  reloading: 0
+  reloadDipAngle: 40
+  reloadLowerLength: 5
   spring: 2
-  drag: 0.12
-  Rspring: 40
-  Rdrag: 0.2
+  drag: 0.06
 --- !u!1 &2333990758940125370
 GameObject:
   m_ObjectHideFlags: 0
