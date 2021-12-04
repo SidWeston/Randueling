@@ -37,7 +37,12 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //Left and Right(A and D) movement
-        Vector3 vMovementVector = transform.forward * dodgeVelocity + transform.right* dodgeVelocity;
+        //Vector3 vMovementVector = transform.forward * dodgeVelocity + transform.right * dodgeVelocity;
+        Vector3 vMovementVector = new Vector3(dodgeVelocity, 0,0);
+        if (!invertXClamp)
+        {
+            vMovementVector *= -1.0f;
+        }
         playerController.Move(vMovementVector * fMoveSpeed * Time.deltaTime);
         //Keeps player on single axis
         transform.position = new Vector3(transform.position.x, 2, zLocationLock);

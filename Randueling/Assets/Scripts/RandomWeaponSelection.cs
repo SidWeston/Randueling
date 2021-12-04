@@ -94,7 +94,9 @@ public class RandomWeaponSelection : MonoBehaviour
 
     public void SetPlayerWeapon(GameObject playerToAddTo, GameObject playerWeapon)
     {
-        GameObject weapon = Instantiate(playerWeapon, playerToAddTo.GetComponent<PlayerWeapon>().weaponLocation.transform.position, transform.rotation, playerToAddTo.transform);
+        Transform weaponPos = playerToAddTo.GetComponent<PlayerWeapon>().weaponLocation.transform;
+        GameObject weapon = Instantiate(playerWeapon, weaponPos.position + playerWeapon.transform.position, transform.rotation, playerToAddTo.transform);
+        weapon.transform.Rotate(0, -8.68f, 0);
         playerToAddTo.GetComponent<PlayerWeapon>().currentWeapon = weapon;
     }
     

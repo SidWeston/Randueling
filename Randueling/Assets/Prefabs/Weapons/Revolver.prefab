@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881454770786480979}
   m_LocalRotation: {x: -0, y: -0.9971852, z: 0, w: -0.07497872}
-  m_LocalPosition: {x: 0.22, y: 0.375, z: 0.59}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 9043870794903359859}
@@ -113,7 +113,7 @@ MonoBehaviour:
   shooting: 0
   readyToShoot: 0
   reloading: 0
-  recoil: 1
+  recoil: 10
   pickupScript: {fileID: 4800699154518276298}
 --- !u!114 &4800699154518276298
 MonoBehaviour:

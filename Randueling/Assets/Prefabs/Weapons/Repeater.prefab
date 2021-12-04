@@ -82,36 +82,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &1215080816860532037
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4493266972909120183}
-  m_Layer: 0
-  m_Name: BulletSpawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4493266972909120183
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1215080816860532037}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.20973158, y: -0.40808904, z: -1.3338928}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8000859389270657476}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1515040712131251211
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,7 +682,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7224639762095919998}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.57, y: -0.34, z: 0.24999914}
+  m_LocalPosition: {x: -0.49, y: -0.393, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 7814119464124872812}
@@ -724,7 +694,6 @@ Transform:
   - {fileID: 8298964545292956963}
   - {fileID: 2699773417934926651}
   - {fileID: 8614653743285650641}
-  - {fileID: 4493266972909120183}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -741,7 +710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Repeater
-  bulletSpawnLocation: {fileID: 1215080816860532037}
+  bulletSpawnLocation: {fileID: 0}
   bullet: {fileID: 2334920274381384768, guid: 008b206904ae586448c2e08602d1a308, type: 3}
   doesRichochet: 0
   isProjectile: 1
@@ -756,7 +725,7 @@ MonoBehaviour:
   shooting: 0
   readyToShoot: 0
   reloading: 0
-  recoil: 0
+  recoil: 5
   pickupScript: {fileID: 5691572457827304882}
 --- !u!114 &5691572457827304882
 MonoBehaviour:

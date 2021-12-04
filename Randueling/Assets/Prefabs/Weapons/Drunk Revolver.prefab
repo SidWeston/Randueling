@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5233273842460827018}
   m_LocalRotation: {x: -0.53816307, y: 0.2723765, z: 0.1641661, w: 0.780539}
-  m_LocalPosition: {x: 0.2584, y: -0.0313, z: 0.0281}
+  m_LocalPosition: {x: 0.16, y: -0.0313, z: 0.0281}
   m_LocalScale: {x: 2.1216, y: 2.1216, z: 2.1216}
   m_Children: []
   m_Father: {fileID: 1908031266755231085}
@@ -109,15 +109,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6412132385223339402}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.1, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0.9970527, z: 0, w: -0.07671908}
+  m_LocalPosition: {x: 0.04, y: 0, z: -0.009}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 2973992644380741546}
   - {fileID: 2351724199477729219}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -188.8, z: 0}
 --- !u!33 &9218792166716898300
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -196,7 +196,7 @@ MonoBehaviour:
   shooting: 0
   readyToShoot: 0
   reloading: 0
-  recoil: 0
+  recoil: 10
   pickupScript: {fileID: 5303307882442059080}
 --- !u!114 &5303307882442059080
 MonoBehaviour:
