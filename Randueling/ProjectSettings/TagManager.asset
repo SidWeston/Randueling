@@ -9,6 +9,8 @@ TagManager:
   - PlayerTwo
   - PlayerManager
   - Button
+  - Button2
+  - Canvas
   layers:
   - Default
   - TransparentFX

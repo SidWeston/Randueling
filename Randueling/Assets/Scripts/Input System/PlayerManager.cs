@@ -87,11 +87,15 @@ public class PlayerManager : MonoBehaviour
                 sceneChanged = true;
                 currentSceneIndex = 1;
                 SceneManager.LoadScene(1);
+                //playerOne.GetComponent<PlayerInput>().Disable();
+                //playerTwo.GetComponent<PlayerInput>().Disable();
             }
             else if (currentSceneIndex == 1)
             {
                 sceneChanged = true;
                 currentSceneIndex = 2;
+                //playerOne.GetComponent<PlayerInput>().Enable();
+                //playerTwo.GetComponent<PlayerInput>().Enable();
                 SceneManager.LoadScene(2);
             }
         }

@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spring: 3.3
-  drag: 0.1
+  drag: 0.12
   altPos: {x: 0, y: 0}
   altSizeMult: 1.2
   changesSize: 1
@@ -472,7 +472,7 @@ MonoBehaviour:
   changeButtonSFXLength: 1
   chooseButtonSFX: {fileID: 0}
   chooseButtonSFXLength: 1
-  buttonDistanceCheck: 300
+  ButtonTagName: Button
 --- !u!4 &205057078
 Transform:
   m_ObjectHideFlags: 0
@@ -619,7 +619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spring: 3.3
-  drag: 0.1
+  drag: 0.12
   altPos: {x: 0, y: 0}
   altSizeMult: 1.2
   changesSize: 1
@@ -1260,7 +1260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spring: 3.3
-  drag: 0.1
+  drag: 0.12
   altPos: {x: 0, y: 0}
   altSizeMult: 1.2
   changesSize: 1

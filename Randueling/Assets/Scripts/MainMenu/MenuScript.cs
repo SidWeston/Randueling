@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class MenuScript : MonoBehaviour {
 	#region Variables to assign via the unity inspector [SerializeFields]
-	[SerializeField]
-	private GameObject currentSelection = null;
+	
+	public GameObject currentSelection = null;
 
 	[SerializeField]
 	private GameObject changeButtonSFX = null;
@@ -22,7 +22,8 @@ public class MenuScript : MonoBehaviour {
 	private float chooseButtonSFXLength = 1.0f;
 
 	[SerializeField]
-	private float buttonDistanceCheck = 300.0f;
+	private string ButtonTagName = "Button";
+
 	#endregion
 
 	#region Variable Declarations
@@ -40,7 +41,8 @@ public class MenuScript : MonoBehaviour {
 
 	#region Private Functions (Do not try to access from outside this class.)
 	// Start is called before the first frame update
-	void Start() {
+	void Start() 
+	{
 
 	}
 
@@ -57,11 +59,15 @@ public class MenuScript : MonoBehaviour {
 				changeButtonSFXPlayed = true;
 				StartCoroutine("PlayChangeButtonSoundEffect");
 			}
-			List<GameObject> buttonArray = new List<GameObject>(GameObject.FindGameObjectsWithTag("Button"));
+			List<GameObject> buttonArray = new List<GameObject>(GameObject.FindGameObjectsWithTag(ButtonTagName));
 			buttonArray.Remove(currentSelection);
 			buttonArray.ToArray();
 			foreach (GameObject button in buttonArray) {
-				float distance = Vector2.Distance(button.GetComponent<RectTransform>().anchoredPosition, currentSelection.GetComponent<RectTransform>().anchoredPosition + new Vector2(movementInput.x * buttonDistanceCheck, movementInput.y * buttonDistanceCheck));
+				if(Vector2.Dot(new Vector2(movementInput.x,movementInput.y),currentSelection.GetComponent<RectTransform>().position - button.GetComponent<RectTransform>().position) > 0.5f)
+                {
+					continue;
+                }
+				float distance = Vector2.Distance(button.GetComponent<RectTransform>().position, currentSelection.GetComponent<RectTransform>().position);// + new Vector2(movementInput.x * buttonDistanceCheck, movementInput.y * buttonDistanceCheck));
 				if (distance < closest) {
 					closest = distance;
 					closestObject = button;
@@ -74,15 +80,23 @@ public class MenuScript : MonoBehaviour {
 			changing = true;
 			StartCoroutine(WaitSec(0.2f));
 		}
+		
 	}
 
 	public void OnRightTrigger(InputAction.CallbackContext context) {
-		currentSelection.GetComponent<SpringDynamics>().React(1.0f);
-		currentSelection.GetComponent<Button>().onClick.Invoke();
-		if (!chooseButtonSFXPlayed) {
-			chooseButtonSFXPlayed = true;
-			StartCoroutine("PlayChooseButtonSoundEffect");
+        if (!changing)
+        {
+			currentSelection.GetComponent<SpringDynamics>().React(0.7f);
+			currentSelection.GetComponent<Button>().onClick.Invoke();
+			if (!chooseButtonSFXPlayed)
+			{
+				chooseButtonSFXPlayed = true;
+				StartCoroutine("PlayChooseButtonSoundEffect");
+			}
+			changing = true;
+			StartCoroutine(WaitSec(0.2f));
 		}
+		
 	}
 
 	public void OnMovement(InputAction.CallbackContext value) {

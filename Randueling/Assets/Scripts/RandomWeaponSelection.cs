@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RandomWeaponSelection : MonoBehaviour
 {
@@ -9,8 +10,21 @@ public class RandomWeaponSelection : MonoBehaviour
     public GameObject playerTwo;
 
     public List<GameObject> weaponsList;
+    public List<GameObject> weaponSelectPrefabs;
     public List<GameObject> playerOneWeapons;
     public List<GameObject> playerTwoWeapons;
+
+    [SerializeField]
+    private float startDistance = -580.0f;
+    [SerializeField]
+    private float gapDistance = 230.0f;
+    [SerializeField]
+    private MenuScript player1Menu;
+    [SerializeField]
+    private MenuScript player2Menu;
+
+    private bool currentUISet = false;
+    private bool currentUISet2 = false;
 
 
     // Start is called before the first frame update
@@ -44,19 +58,20 @@ public class RandomWeaponSelection : MonoBehaviour
     {
         for(int i = 0; i < 3; i++)
         {
-            GenerateWeaponChoice(playerOneWeapons);
-           
+            GenerateWeaponChoice(playerOneWeapons,1);
         }
-        SetPlayerWeapon(playerOne, playerOneWeapons[0]);
+        //SetPlayerWeapon(playerOne, playerOneWeapons[0]);
         for (int i = 0; i < 3; i++)
         {
-            GenerateWeaponChoice(playerTwoWeapons);
+            GenerateWeaponChoice(playerTwoWeapons,2);
         }
-        SetPlayerWeapon(playerTwo, playerTwoWeapons[0]);
+        //SetPlayerWeapon(playerTwo, playerTwoWeapons[0]);
+        
     }
 
-    public void GenerateWeaponChoice(List<GameObject> listToAddTo)
+    public void GenerateWeaponChoice(List<GameObject> listToAddTo,int playerNumber)
     {
+        bool wepAdded = false;
         int weaponIndexToAdd = Random.Range(0, weaponsList.Count);
         if(listToAddTo.Count >= 1)
         {
@@ -64,13 +79,46 @@ public class RandomWeaponSelection : MonoBehaviour
             if (CheckForWeaponDuplicates(listToAddTo))
             {
                 listToAddTo.RemoveAt(listToAddTo.Count - 1);
-                GenerateWeaponChoice(listToAddTo);
+                GenerateWeaponChoice(listToAddTo,playerNumber);
+            }
+            else
+            {
+                wepAdded = true;
             }
         }
         else
         {
             listToAddTo.Add(weaponsList[weaponIndexToAdd]);
+            wepAdded = true;
         }
+        if (wepAdded)
+        {
+            GameObject newUI = Instantiate(weaponSelectPrefabs[weaponIndexToAdd],GameObject.FindGameObjectWithTag("Canvas").transform);
+            newUI.GetComponent<RectTransform>().anchoredPosition = new Vector2(startDistance,0);
+            if(playerNumber == 1)
+            {
+                newUI.GetComponent<Button>().onClick.AddListener(() => { SetPlayerWeapon(weaponIndexToAdd, "PlayerOne"); });
+                newUI.tag = "Button";
+                if (!currentUISet)
+                {
+                    player1Menu.currentSelection = newUI;
+                    currentUISet = true;
+                }
+            }
+            else
+            {
+                newUI.GetComponent<Button>().onClick.AddListener(() => { SetPlayerWeapon(weaponIndexToAdd, "PlayerTwo"); });
+                newUI.tag = "Button2";
+                if (!currentUISet2)
+                {
+                    player2Menu.currentSelection = newUI;
+                    currentUISet2 = true;
+                }
+            }
+            
+            startDistance += gapDistance;
+        }
+        
     }
 
     public bool CheckForWeaponDuplicates(List<GameObject> listToCheck)
@@ -92,12 +140,14 @@ public class RandomWeaponSelection : MonoBehaviour
         return false;
     }
 
-    public void SetPlayerWeapon(GameObject playerToAddTo, GameObject playerWeapon)
+    public void SetPlayerWeapon(int playerWeapon, string playerToAddTo)
     {
-        Transform weaponPos = playerToAddTo.GetComponent<PlayerWeapon>().weaponLocation.transform;
-        GameObject weapon = Instantiate(playerWeapon, weaponPos.position + playerWeapon.transform.position, transform.rotation, playerToAddTo.transform);
+        GameObject chosenWeapon = weaponsList[playerWeapon];
+        GameObject chosenPlayer = GameObject.FindGameObjectWithTag(playerToAddTo);
+        Transform weaponPos = chosenPlayer.GetComponent<PlayerWeapon>().weaponLocation.transform;
+        GameObject weapon = Instantiate(chosenWeapon, weaponPos.position + chosenWeapon.transform.position, transform.rotation, chosenPlayer.transform);
         weapon.transform.Rotate(0, -8.68f, 0);
-        playerToAddTo.GetComponent<PlayerWeapon>().currentWeapon = weapon;
+        chosenPlayer.GetComponent<PlayerWeapon>().currentWeapon = weapon;
     }
     
 
