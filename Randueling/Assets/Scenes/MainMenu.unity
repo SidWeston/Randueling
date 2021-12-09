@@ -473,6 +473,7 @@ MonoBehaviour:
   chooseButtonSFX: {fileID: 0}
   chooseButtonSFXLength: 1
   ButtonTagName: Button
+  bothPlayers: 1
 --- !u!4 &205057078
 Transform:
   m_ObjectHideFlags: 0

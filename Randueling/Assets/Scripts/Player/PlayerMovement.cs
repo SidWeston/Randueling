@@ -8,12 +8,13 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject playerManager;
 
-    private Vector2 vMovement;
+    public Vector2 vMovement;
+    public float rightTrigger;
     private Vector2 vMouseVector;
 
     private float xRotation = 0.0f;
     private float yRotation = 0.0f;
-    [SerializeField] [Range(0.1f,1.0f)] private float mouseSensitivity = 0.1f;
+    [SerializeField] [Range(0.1f, 1.0f)] private float mouseSensitivity = 0.1f;
 
     [SerializeField] private CharacterController playerController;
     [SerializeField] private Camera playerCamera;
@@ -38,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     {
         //Left and Right(A and D) movement
         //Vector3 vMovementVector = transform.forward * dodgeVelocity + transform.right * dodgeVelocity;
-        Vector3 vMovementVector = new Vector3(dodgeVelocity, 0,0);
+        Vector3 vMovementVector = new Vector3(dodgeVelocity, 0, 0);
         if (!invertXClamp)
         {
             vMovementVector *= -1.0f;
@@ -48,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
         transform.position = new Vector3(transform.position.x, 2, zLocationLock);
 
         //Camera rotation section
-        if(rotationEnabled)
+        if (rotationEnabled)
         {
             xRotation -= vMouseVector.y * mouseSensitivity;
             xRotation = Mathf.Clamp(xRotation, -90, 90);
@@ -67,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
         dodgeVelocity = Mathf.Lerp(dodgeVelocity, 0, 0.1f);
 
-        if(dodgeCharges < 3)
+        if (dodgeCharges < 3)
         {
             dodgeCharges += dodgeRechargeRate * Time.deltaTime;
         }
@@ -78,11 +79,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Dodge()
     {
-        if(vMovement.x > 0)
+        if (vMovement.x > 0)
         {
             dodgeVelocity = dodgeLength;
         }
-        else if(vMovement.x < 0)
+        else if (vMovement.x < 0)
         {
             dodgeVelocity = -dodgeLength;
         }
@@ -99,11 +100,15 @@ public class PlayerMovement : MonoBehaviour
             dodgeCooldown = dodgeCooldownRate;
         }
     }
-   
+
 
     public void OnMouse(InputAction.CallbackContext context)
     {
         vMouseVector = context.ReadValue<Vector2>();
     }
 
+    public void OnRightTrigger(InputAction.CallbackContext context)
+    {
+        rightTrigger = context.ReadValue<float>();
+    }
 }

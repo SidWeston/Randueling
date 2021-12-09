@@ -24,6 +24,9 @@ public class MenuScript : MonoBehaviour {
 	[SerializeField]
 	private string ButtonTagName = "Button";
 
+	[SerializeField]
+	private bool bothPlayers = false;
+
 	#endregion
 
 	#region Variable Declarations
@@ -31,6 +34,7 @@ public class MenuScript : MonoBehaviour {
 	private bool changing = false;
 	private float closest = 1000.0f;
 	private GameObject closestObject;
+	private PlayerMovement playerMovement;
 
 	private bool firstSized = false;
 
@@ -43,11 +47,29 @@ public class MenuScript : MonoBehaviour {
 	// Start is called before the first frame update
 	void Start() 
 	{
-
+        if (!bothPlayers)
+        {
+			if (ButtonTagName == "Button")
+            {
+				playerMovement = GameObject.FindGameObjectWithTag("PlayerOne").GetComponent<PlayerMovement>();
+            }
+            else
+            {
+				playerMovement = GameObject.FindGameObjectWithTag("PlayerTwo").GetComponent<PlayerMovement>();
+			}
+		}
 	}
 
 	// Update is called once per frame
 	void Update() {
+        if (!bothPlayers)
+        {
+			movementInput = playerMovement.vMovement;
+			if(playerMovement.rightTrigger > 0.7f)
+            {
+				OnRightTrigger(new InputAction.CallbackContext());
+            }
+        }
 		if (!firstSized) {
 			currentSelection.GetComponent<SpringDynamics>().SwitchSize();
 			firstSized = true;
@@ -73,12 +95,15 @@ public class MenuScript : MonoBehaviour {
 					closestObject = button;
 				}
 			}
-			currentSelection.GetComponent<SpringDynamics>().SwitchSize();
-			currentSelection = closestObject;
-			currentSelection.GetComponent<SpringDynamics>().SwitchSize();
-			closest = 1000.0f;
-			changing = true;
-			StartCoroutine(WaitSec(0.2f));
+			if(closest != 1000.0f)
+            {
+				currentSelection.GetComponent<SpringDynamics>().SwitchSize();
+				currentSelection = closestObject;
+				currentSelection.GetComponent<SpringDynamics>().SwitchSize();
+				closest = 1000.0f;
+				changing = true;
+				StartCoroutine(WaitSec(0.2f));
+			}
 		}
 		
 	}

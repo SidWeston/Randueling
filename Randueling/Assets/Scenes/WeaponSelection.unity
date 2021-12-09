@@ -544,7 +544,6 @@ GameObject:
   - component: {fileID: 2091540785}
   - component: {fileID: 2091540786}
   - component: {fileID: 2091540787}
-  - component: {fileID: 2091540788}
   m_Layer: 0
   m_Name: MenuObject
   m_TagString: Untagged
@@ -584,6 +583,7 @@ MonoBehaviour:
   chooseButtonSFX: {fileID: 0}
   chooseButtonSFXLength: 1
   ButtonTagName: Button
+  bothPlayers: 0
 --- !u!114 &2091540787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -602,97 +602,4 @@ MonoBehaviour:
   chooseButtonSFX: {fileID: 0}
   chooseButtonSFXLength: 1
   ButtonTagName: Button2
---- !u!114 &2091540788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2091540784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 284bd3295274bb042b3e6ae17abd7e9d, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 7bd0cba4-0e94-478d-9e33-dd85af0c4749
-    m_ActionName: PlayerKBM/Mouse[/Mouse/delta,/XInputControllerWindows/rightStick/up,/XInputControllerWindows/rightStick/down,/XInputControllerWindows/rightStick/left,/XInputControllerWindows/rightStick/right]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2091540786}
-        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
-        m_MethodName: OnMovement
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 50d7f48c-0365-4393-a205-da5999f72c04
-    m_ActionName: PlayerKBM/WASD Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 023f869a-f697-43e8-829e-0431652b2c2a
-    m_ActionName: PlayerKBM/Fire[/Mouse/leftButton,/XInputControllerWindows/rightTrigger]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 1a613459-8ac9-44b0-859c-f99f33eec223
-    m_ActionName: PlayerKBM/SpawnObject[/Keyboard/q]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 082224f2-1a7f-427c-a66b-9c6d25bc2ba7
-    m_ActionName: PlayerKBM/StartGame[/Keyboard/enter,/XInputControllerWindows/start]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2091540786}
-        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
-        m_MethodName: OnRightTrigger
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 33a38a40-a583-42c5-b451-960042314ad4
-    m_ActionName: PlayerKBM/MenuSpace[/XInputControllerWindows/rightTrigger,/Keyboard/space]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: fae508f0-b723-4d4f-a5e9-eaad2717c5e2
-    m_ActionName: PlayerController/Mouse[/Mouse/delta,/XInputControllerWindows/rightStick/up,/XInputControllerWindows/rightStick/down,/XInputControllerWindows/rightStick/left,/XInputControllerWindows/rightStick/right]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 1d0e594f-5f16-4a7e-af88-cf59ec3d988b
-    m_ActionName: PlayerController/WASD Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e0c80406-1156-4f77-be26-1e9dc385d5c7
-    m_ActionName: PlayerController/Fire[/Mouse/leftButton,/XInputControllerWindows/rightTrigger]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 5e6e2ab7-4d42-4183-8ab2-5cebe2037017
-    m_ActionName: PlayerController/SpawnObject[/Keyboard/q]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: PlayerKBM
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  bothPlayers: 0
