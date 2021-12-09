@@ -79,12 +79,12 @@ MonoBehaviour:
   bulletsPerFire: 0
   spread: 0
   timeBetweenShots: 0.5
-  bulletVelocity: 30
+  bulletVelocity: 50
   reloadTime: 5
   shooting: 0
   readyToShoot: 0
   reloading: 0
-  recoil: 40
+  recoil: 20
   pickupScript: {fileID: 530755211581126}
 --- !u!1 &3419117338002436670
 GameObject:
