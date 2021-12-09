@@ -19,15 +19,15 @@ public class PlayerHealth : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "PlayerOne" || collision.gameObject.tag == "PlayerTwo") {
+        if (collision.gameObject.tag == "Bullet")
+        {
             TakeDamage(1);
         }
 
-
-        if (currentHealth <= 0) {
+        if (currentHealth <= 0)
+        {
             Debug.Break();
         }
 
