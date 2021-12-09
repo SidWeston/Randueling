@@ -10,6 +10,14 @@ public class HealthBar : MonoBehaviour
     public Gradient gradient;
     public Image Fill;
 
+    private void Start()
+    {
+        if(transform.parent.parent.tag == "PlayerTwo")
+        {
+            GetComponent<RectTransform>().anchoredPosition += new Vector2(1345.0f, 0);
+        }
+    }
+
     public void SetMaxHealth(int health) 
     {
         slider.maxValue = health;
