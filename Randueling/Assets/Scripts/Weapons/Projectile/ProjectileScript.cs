@@ -9,10 +9,16 @@ public class ProjectileScript : MonoBehaviour
     Transform opposingTransform;
 
     public LayerMask whatCanRicochet;
-    
+
+    public GameObject whoShot; //reference to the gameobject of the player that fired the bullet
+    private WeaponBase weaponScriptRef; // reference to the actual weapon script of the gun that fired the bullet
+
+    [SerializeField]
+    private float bulletLifetime = 5.0f;
     // Start is called before the first frame update
     void Start()
     {
+        Destroy(gameObject, bulletLifetime);
     }
 
     // Update is called once per frame
@@ -25,6 +31,10 @@ public class ProjectileScript : MonoBehaviour
         //    reflectedTransform = Vector3.Reflect(transform.forward, bulletRay.point);
         //}
          
+        if(!weaponScriptRef)
+        {
+            weaponScriptRef = whoShot.GetComponentInChildren<WeaponBase>();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -35,18 +45,25 @@ public class ProjectileScript : MonoBehaviour
             Debug.Log("Hit" + collision.gameObject.tag);
         }
 
-        Vector3 reflectNormal = collision.contacts[0].normal;
-        if (whoOwnsThis == 1)
+
+        if(weaponScriptRef.doesRichochet)
         {
-            opposingTransform = GameObject.FindGameObjectWithTag("PlayerTwo").transform;
+            Vector3 reflectNormal = collision.contacts[0].normal;
+            if (whoOwnsThis == 1)
+            {
+                opposingTransform = GameObject.FindGameObjectWithTag("PlayerTwo").transform;
+            }
+            else
+            {
+                opposingTransform = GameObject.FindGameObjectWithTag("PlayerOne").transform;
+            }
+            Vector3 reflectedTransform = Vector3.Reflect(transform.forward, reflectNormal);
+            Vector3 newDirection = opposingTransform.position - transform.position;
+            transform.forward = Vector3.Lerp(newDirection, reflectedTransform, 0.55f);
         }
         else
         {
-            opposingTransform = GameObject.FindGameObjectWithTag("PlayerOne").transform;
+            Destroy(gameObject); //if the bullet doesnt ricochet, destroy it when it collides with an object
         }
-        Vector3 reflectedTransform = Vector3.Reflect(transform.forward, reflectNormal);
-        Vector3 newDirection = opposingTransform.position - transform.position;
-        transform.forward = Vector3.Lerp(newDirection, reflectedTransform, 0.55f);
-
     }
 }

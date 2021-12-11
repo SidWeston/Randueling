@@ -256,7 +256,7 @@ MonoBehaviour:
   weaponsList:
   - {fileID: 5242085846286104753, guid: 33695aae0ad37614ab4c96a7bd600924, type: 3}
   - {fileID: 3011387797298199416, guid: 5815df7cafd1b3e4c8af7a5de39d6e87, type: 3}
-  - {fileID: 6412132385223339402, guid: 2342013b6e27137498de51cb25fce0d9, type: 3}
+  - {fileID: 2252851310930253470, guid: 4966fc578c9653246a9d5aca3f3dbc54, type: 3}
   weaponSelectPrefabs:
   - {fileID: 975937458462622054, guid: 6d73799cfe068d24fb88c1f7189b749e, type: 3}
   - {fileID: 975937458462622054, guid: 6d73799cfe068d24fb88c1f7189b749e, type: 3}

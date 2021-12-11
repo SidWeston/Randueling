@@ -10,7 +10,8 @@ public class PlayerWeapon : MonoBehaviour
     public GameObject weaponLocation;
 
     //unity input system converts input actions to variables
-    private float fireWeapon;
+    [HideInInspector]
+    public float fireWeapon;
     public GameObject bulletSpawnLocation;
 
     [SerializeField] private Camera playerCamera; //reference to the player camera to help determine the direction the projectile should fire

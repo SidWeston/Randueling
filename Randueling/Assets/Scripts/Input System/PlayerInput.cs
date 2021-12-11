@@ -305,7 +305,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Controller"",
                     ""action"": ""MenuSpace"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -316,7 +316,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KBM"",
                     ""action"": ""MenuSpace"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false

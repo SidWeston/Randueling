@@ -100,12 +100,11 @@ MonoBehaviour:
   weaponName: Classic Revolver
   bulletSpawnLocation: {fileID: 0}
   bullet: {fileID: 2334920274381384768, guid: 008b206904ae586448c2e08602d1a308, type: 3}
-  doesRichochet: 0
+  doesRichochet: 1
   isProjectile: 1
   magazineSize: 6
   bulletsLeft: 0
   bulletsShot: 0
-  bulletsPerFire: 0
   spread: 0
   timeBetweenShots: 0.5
   bulletVelocity: 20

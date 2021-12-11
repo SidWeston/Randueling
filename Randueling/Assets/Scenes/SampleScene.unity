@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -254,6 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f123fdb2e9d7f4f4b8056ffac12e0e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponName: 
   bulletSpawnLocation: {fileID: 977719605}
   bullet: {fileID: 2334920274381384768, guid: 008b206904ae586448c2e08602d1a308, type: 3}
   doesRichochet: 1
@@ -261,13 +262,15 @@ MonoBehaviour:
   magazineSize: 0
   bulletsLeft: 0
   bulletsShot: 0
-  bulletsPerFire: 0
   spread: 0
   timeBetweenShots: 1
   bulletVelocity: 10
+  reloadTime: 0
   shooting: 0
   readyToShoot: 0
   reloading: 0
+  recoil: 0
+  pickupScript: {fileID: 0}
 --- !u!1 &382791125
 GameObject:
   m_ObjectHideFlags: 0
@@ -1508,10 +1511,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39116fca33ef7ca4dabb0ea56df12bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerManager: {fileID: 0}
+  vMovement: {x: 0, y: 0}
+  rightTrigger: 0
   mouseSensitivity: 0.572
   playerController: {fileID: 1798024608}
   playerCamera: {fileID: 668119522}
   fMoveSpeed: 10
+  dodgeLength: 0
+  dodgeCharges: 0
+  dodgeRechargeRate: 0
+  dodgeCooldown: 0
+  dodgeCooldownRate: 0
+  zLocationLock: 0
+  invertXClamp: 0
+  rotationEnabled: 0
 --- !u!114 &1798024607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1660,6 +1674,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWeapon: {fileID: 198938192}
+  weaponLocation: {fileID: 0}
+  fireWeapon: 0
   bulletSpawnLocation: {fileID: 977719605}
   playerCamera: {fileID: 668119522}
 --- !u!1 &1855049427
