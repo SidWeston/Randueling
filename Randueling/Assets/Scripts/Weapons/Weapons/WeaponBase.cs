@@ -15,7 +15,7 @@ public class WeaponBase : MonoBehaviour
     //if the weapon is a projectile (bullet has travel time)
     public bool isProjectile = true; //if false, the weapon will fire a raycast instead of a projectile
 
-    public int magazineSize, bulletsLeft, bulletsShot, bulletsPerFire;
+    public int magazineSize, bulletsLeft, bulletsShot;
     [Range(0, 0.2f)]
     public float spread; 
     public float timeBetweenShots, bulletVelocity, reloadTime;
@@ -24,12 +24,8 @@ public class WeaponBase : MonoBehaviour
 
     public PickUpScript pickupScript;
 
-    private void Awake()
-    {
-    }
-
     // Start is called before the first frame update
-    void Start()
+    public virtual void Start()
     {
         readyToShoot = true;
         bulletsLeft = magazineSize;
@@ -38,7 +34,7 @@ public class WeaponBase : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
-        if(!bulletSpawnLocation)
+        if(!bulletSpawnLocation) //if the bullet spawn location isnt set it will attempt to find it in the scene
         {
             bulletSpawnLocation = transform.parent.GetChild(0).gameObject;
         }
