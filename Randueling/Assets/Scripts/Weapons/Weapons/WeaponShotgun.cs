@@ -29,11 +29,13 @@ public class WeaponShotgun : WeaponBase
                 if (whoFired.gameObject.tag == "PlayerOne")
                 {
                     currentBullet.GetComponent<ProjectileScript>().whoOwnsThis = 1;
+                    currentBullet.GetComponent<ProjectileScript>().whoShot = whoFired;
                     currentBullet.GetComponent<ProjectileScript>().bulletSpeed = bulletVelocity;
                 }
                 else if (whoFired.gameObject.tag == "PlayerTwo")
                 {
                     currentBullet.GetComponent<ProjectileScript>().whoOwnsThis = 2;
+                    currentBullet.GetComponent<ProjectileScript>().whoShot = whoFired;
                     currentBullet.GetComponent<ProjectileScript>().bulletSpeed = bulletVelocity;
                 }
 

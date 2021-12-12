@@ -14,7 +14,7 @@ public class HealthBar : MonoBehaviour
     {
         if(transform.parent.parent.tag == "PlayerTwo")
         {
-            GetComponent<RectTransform>().anchoredPosition += new Vector2(1345.0f, 0);
+            GetComponent<RectTransform>().anchoredPosition += new Vector2(640.0f, 0);
         }
     }
 

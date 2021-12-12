@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour {
 	#region Variables to assign via the unity inspector [SerializeFields]
@@ -153,6 +154,11 @@ public class MenuScript : MonoBehaviour {
 	{
 		changing = !changing;
 	}
+
+	public void StartDuel()
+    {
+		SceneManager.LoadScene(1);
+    }
 	#endregion
 
 }

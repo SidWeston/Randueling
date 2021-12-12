@@ -18,7 +18,7 @@ public class PlayerManager : MonoBehaviour
 
     public GameObject playerOne, playerTwo;
 
-    private int currentSceneIndex = 0;
+    private int currentSceneIndex = 1;
     private float sceneChangeCooldown = 2.0f;
 
     //UI Stuff
@@ -82,21 +82,21 @@ public class PlayerManager : MonoBehaviour
     {
         if(!sceneChanged)
         {
-            if (currentSceneIndex == 0) //bool stops the scene from being reset during play
-            {
-                sceneChanged = true;
-                currentSceneIndex = 1;
-                SceneManager.LoadScene(1);
-                //playerOne.GetComponent<PlayerInput>().Disable();
-                //playerTwo.GetComponent<PlayerInput>().Disable();
-            }
-            else if (currentSceneIndex == 1)
+            if (currentSceneIndex == 1) //bool stops the scene from being reset during play
             {
                 sceneChanged = true;
                 currentSceneIndex = 2;
+                SceneManager.LoadScene(2);
+                //playerOne.GetComponent<PlayerInput>().Disable();
+                //playerTwo.GetComponent<PlayerInput>().Disable();
+            }
+            else if (currentSceneIndex == 2)
+            {
+                sceneChanged = true;
+                currentSceneIndex = 3;
                 //playerOne.GetComponent<PlayerInput>().Enable();
                 //playerTwo.GetComponent<PlayerInput>().Enable();
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(3);
             }
         }
 

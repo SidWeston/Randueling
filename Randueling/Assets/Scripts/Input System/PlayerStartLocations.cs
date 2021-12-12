@@ -41,6 +41,8 @@ public class PlayerStartLocations : MonoBehaviour
 
         playerManager.GetComponent<PlayerManager>().playerOne.transform.position = playerOneSpawn.transform.position;
         playerManager.GetComponent<PlayerManager>().playerTwo.transform.position = playerTwoSpawn.transform.position;
+        playerManager.GetComponent<PlayerManager>().playerOne.transform.rotation = playerOneSpawn.transform.rotation;
+        playerManager.GetComponent<PlayerManager>().playerTwo.transform.rotation = playerTwoSpawn.transform.rotation;
     }
 
 

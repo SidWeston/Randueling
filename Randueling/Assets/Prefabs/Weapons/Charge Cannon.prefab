@@ -99,14 +99,14 @@ MonoBehaviour:
   weaponName: Charge Cannon
   bulletSpawnLocation: {fileID: 0}
   bullet: {fileID: 7260239706025385133, guid: 9ed2843d3f944bc40877a8e6e57b1f29, type: 3}
-  doesRichochet: 0
+  doesRichochet: 1
   isProjectile: 1
   magazineSize: 1
   bulletsLeft: 1
   bulletsShot: 0
   spread: 0
   timeBetweenShots: 0.1
-  bulletVelocity: 50
+  bulletVelocity: 20
   reloadTime: 3
   shooting: 0
   readyToShoot: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   recoil: 50
   pickupScript: {fileID: 3227371623303758649}
   fireInterval: 0.5
-  chargeTime: 2
+  chargeTime: 1.3
   bulletsPerFire: 1
   hasFired: 0
 --- !u!114 &3227371623303758649

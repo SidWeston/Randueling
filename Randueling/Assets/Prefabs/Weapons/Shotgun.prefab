@@ -553,13 +553,13 @@ MonoBehaviour:
   bulletsLeft: 0
   bulletsShot: 0
   spread: 0.15
-  timeBetweenShots: 0.3
+  timeBetweenShots: 0.6
   bulletVelocity: 20
   reloadTime: 3
   shooting: 0
   readyToShoot: 0
   reloading: 0
-  recoil: 40
+  recoil: 30
   pickupScript: {fileID: 4935602815225644514}
   bulletsPerFire: 5
 --- !u!114 &4935602815225644514

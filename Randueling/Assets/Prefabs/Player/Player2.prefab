@@ -189,6 +189,7 @@ GameObject:
   - component: {fileID: 3662350350078234649}
   - component: {fileID: 6837392268761693853}
   - component: {fileID: 582078421917394765}
+  - component: {fileID: 2372588599928528869}
   m_Layer: 0
   m_Name: Player2
   m_TagString: PlayerTwo
@@ -420,6 +421,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 194f9b443fde97345b047b5e08fed61c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2372588599928528869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582078421917394764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b85db4e66bd982c439de9c383f4cdf7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  currentHealth: 3
+  healthBar: {fileID: 8858969565124369876}
 --- !u!1 &1743434716642877570
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,7 +447,6 @@ GameObject:
   - component: {fileID: 5513848821867814328}
   - component: {fileID: 905136169754997079}
   - component: {fileID: 3825617023650920022}
-  - component: {fileID: 3813134077170183755}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -503,21 +518,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3813134077170183755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1743434716642877570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b85db4e66bd982c439de9c383f4cdf7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 3
-  currentHealth: 3
-  healthBar: {fileID: 8858969565124369876}
 --- !u!1 &2470699320335459078
 GameObject:
   m_ObjectHideFlags: 0
