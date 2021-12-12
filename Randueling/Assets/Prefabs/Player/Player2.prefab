@@ -405,6 +405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentWeapon: {fileID: 0}
   weaponLocation: {fileID: 6890275448915220629}
+  fireWeapon: 0
   bulletSpawnLocation: {fileID: 8025669088121690816}
   playerCamera: {fileID: 4107929869130897853}
 --- !u!114 &582078421917394765

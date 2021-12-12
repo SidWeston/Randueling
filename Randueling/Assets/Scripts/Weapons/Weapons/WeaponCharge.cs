@@ -13,7 +13,7 @@ public class WeaponCharge : WeaponBase
 
     private void FireShots()
     {
-
+        fireDirection = bulletSpawnLocation.transform.forward;
         if (!hasFired)
         {
             hasFired = true;
@@ -23,6 +23,7 @@ public class WeaponCharge : WeaponBase
                 if(i == bulletsPerFire)
                 {
                     Invoke("ResetShot", reloadTime);
+                    Invoke("Reload", i * fireInterval);
                     Invoke("Reload", reloadTime);
                 }
             }
@@ -30,7 +31,6 @@ public class WeaponCharge : WeaponBase
         else if(hasFired)
         {
             pickupScript.RotReact(recoil);
-            bulletsLeft--;
 
             GameObject currentBullet = Instantiate(bullet, bulletSpawnLocation.transform.position, Quaternion.identity);
             float spreadAmount = Random.Range(-spread, spread);
