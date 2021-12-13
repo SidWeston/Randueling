@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -257,12 +257,24 @@ MonoBehaviour:
   playerTwo: {fileID: 0}
   weaponsList:
   - {fileID: 881454770786480979, guid: a7268a259c290774db8cc73d75afc01d, type: 3}
-  - {fileID: 3227371623303758650, guid: 862eea26c4caf1345ba46e7d00622d81, type: 3}
+  - {fileID: 3113046236834852184, guid: 862eea26c4caf1345ba46e7d00622d81, type: 3}
   - {fileID: 6412132385223339402, guid: 2342013b6e27137498de51cb25fce0d9, type: 3}
+  - {fileID: 2252851310930253470, guid: 4966fc578c9653246a9d5aca3f3dbc54, type: 3}
+  - {fileID: 7090495430348690644, guid: 2e9f4016274a5864abe2aca8ac2e2cf7, type: 3}
+  - {fileID: 2524348970268398182, guid: 5922d83970e52c04ea018e23d58da365, type: 3}
+  - {fileID: 6528165123162049930, guid: fdc7a61b182ae4247b36726cc8918308, type: 3}
+  - {fileID: 5242085846286104753, guid: 33695aae0ad37614ab4c96a7bd600924, type: 3}
+  - {fileID: 3011387797298199416, guid: 5815df7cafd1b3e4c8af7a5de39d6e87, type: 3}
   weaponSelectPrefabs:
   - {fileID: 4821001354067982049, guid: 1e913cf9b30560d4aa05465e0b19140f, type: 3}
   - {fileID: 4821001354067982049, guid: b75b990111a41234693efdf105125a52, type: 3}
   - {fileID: 4821001354067982049, guid: b90dc20e587bc42408c2f1dc67ac91cb, type: 3}
+  - {fileID: 4821001354067982049, guid: e6fb8a015eb46f140b08838d40921e85, type: 3}
+  - {fileID: 4821001354067982049, guid: 8e21ed7ee14095445bf15f4bf1a60346, type: 3}
+  - {fileID: 4821001354067982049, guid: 808f89bdb41f18642801a85d20fd5b7e, type: 3}
+  - {fileID: 4821001354067982049, guid: 575baea9b4f8bcd45b7164c8ac4c899f, type: 3}
+  - {fileID: 4821001354067982049, guid: 5252a970a62823f4d8c23bd757bba6cf, type: 3}
+  - {fileID: 4821001354067982049, guid: 335de1b298432ce448cf13dc20782f58, type: 3}
   playerOneWeapons: []
   playerTwoWeapons: []
   startDistance: -745
