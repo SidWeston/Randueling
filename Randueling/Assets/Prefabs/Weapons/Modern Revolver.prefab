@@ -214,13 +214,13 @@ MonoBehaviour:
   bullet: {fileID: 2334920274381384768, guid: 008b206904ae586448c2e08602d1a308, type: 3}
   doesRichochet: 1
   isProjectile: 1
-  magazineSize: 6
+  magazineSize: 4
   bulletsLeft: 0
   bulletsShot: 0
   spread: 0
   timeBetweenShots: 0.5
   bulletVelocity: 30
-  reloadTime: 4
+  reloadTime: 2.5
   shooting: 0
   readyToShoot: 0
   reloading: 0
