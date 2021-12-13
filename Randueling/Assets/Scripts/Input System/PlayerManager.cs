@@ -73,6 +73,9 @@ public class PlayerManager : MonoBehaviour
 
             playerTwo = playerToFind;
             DontDestroyOnLoad(playerTwo);
+
+            StartGame();
+
         }
         else
         {
