@@ -794,7 +794,7 @@ MonoBehaviour:
   spread: 0
   timeBetweenShots: 0.5
   bulletVelocity: 30
-  reloadTime: 7
+  reloadTime: 5
   shooting: 0
   readyToShoot: 0
   reloading: 0

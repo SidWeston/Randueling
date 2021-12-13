@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     public float zLocationLock;
     public bool invertXClamp = false;
     public bool rotationEnabled = false;
-
+    public bool movementEnabled = false;
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         vMovement = context.ReadValue<Vector2>();
-        if (dodgeCharges >= 1 && dodgeCooldown < 0)
+        if (dodgeCharges >= 1 && dodgeCooldown < 0 && Mathf.Abs(vMovement.x) > 0.5f && movementEnabled)
         {
             Dodge();
             dodgeCooldown = dodgeCooldownRate;

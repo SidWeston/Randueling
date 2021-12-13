@@ -96,6 +96,8 @@ public class PlayerManager : MonoBehaviour
                 currentSceneIndex = 3;
                 //playerOne.GetComponent<PlayerInput>().Enable();
                 //playerTwo.GetComponent<PlayerInput>().Enable();
+                playerOne.GetComponent<PlayerMovement>().movementEnabled = true;
+                playerTwo.GetComponent<PlayerMovement>().movementEnabled = true;
                 SceneManager.LoadScene(3);
             }
         }

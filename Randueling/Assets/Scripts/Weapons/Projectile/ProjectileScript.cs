@@ -42,7 +42,7 @@ public class ProjectileScript : MonoBehaviour
 
         if(collision.gameObject.tag == "PlayerOne" || collision.gameObject.tag == "PlayerTwo")
         {
-            Debug.Log("Hit" + collision.gameObject.tag);
+            Destroy(gameObject);
         }
 
 
