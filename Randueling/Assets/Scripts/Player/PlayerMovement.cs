@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 vMouseVector;
 
     private float xRotation = 0.0f;
-    private float yRotation = 0.0f;
+    private float yRotation = 180.0f;
     [SerializeField] [Range(0.1f, 1.0f)] private float mouseSensitivity = 0.1f;
 
     [SerializeField] private CharacterController playerController;
@@ -32,6 +32,14 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        if (invertXClamp)
+        {
+            yRotation = 360.0f;
+        }
+        else
+        {
+            yRotation = 180.0f;
+        }
     }
 
     // Update is called once per frame

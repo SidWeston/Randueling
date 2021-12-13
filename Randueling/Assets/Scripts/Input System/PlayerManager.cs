@@ -63,7 +63,8 @@ public class PlayerManager : MonoBehaviour
 
             playerOne = playerToFind;
             DontDestroyOnLoad(playerOne);
-
+            playerOne.GetComponent<PlayerMovement>().invertXClamp = false;
+            
             playerPrefab.gameObject.tag = "PlayerTwo";
             pInputManager.playerPrefab = playerPrefab;
         }
@@ -73,6 +74,8 @@ public class PlayerManager : MonoBehaviour
 
             playerTwo = playerToFind;
             DontDestroyOnLoad(playerTwo);
+            playerTwo.GetComponent<PlayerMovement>().invertXClamp = true;
+
 
             StartGame();
 

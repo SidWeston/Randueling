@@ -31,13 +31,10 @@ public class PlayerStartLocations : MonoBehaviour
 
     private void SetPlayerTransforms()
     {
-
         playerManager.GetComponent<PlayerManager>().playerOne.GetComponent<PlayerMovement>().zLocationLock = playerOneSpawn.transform.position.z;
         playerManager.GetComponent<PlayerManager>().playerTwo.GetComponent<PlayerMovement>().zLocationLock = playerTwoSpawn.transform.position.z;
         playerManager.GetComponent<PlayerManager>().playerOne.GetComponent<PlayerMovement>().rotationEnabled = true;
         playerManager.GetComponent<PlayerManager>().playerTwo.GetComponent<PlayerMovement>().rotationEnabled = true;
-        playerManager.GetComponent<PlayerManager>().playerOne.GetComponent<PlayerMovement>().invertXClamp = false;
-        playerManager.GetComponent<PlayerManager>().playerTwo.GetComponent<PlayerMovement>().invertXClamp = true;
 
         playerManager.GetComponent<PlayerManager>().playerOne.transform.position = playerOneSpawn.transform.position;
         playerManager.GetComponent<PlayerManager>().playerTwo.transform.position = playerTwoSpawn.transform.position;
