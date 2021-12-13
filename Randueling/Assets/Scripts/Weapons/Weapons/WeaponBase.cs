@@ -52,9 +52,10 @@ public class WeaponBase : MonoBehaviour
             bulletsLeft--;
 
             GameObject currentBullet = Instantiate(bullet, bulletSpawnLocation.transform.position, Quaternion.identity);
-            float spreadAmount = Random.Range(-spread, spread);
+            float spreadAmountX = Random.Range(-spread, spread);
+            float spreadAmountY = Random.Range(-spread / 2, spread / 2);
             currentBullet.transform.forward = directionToFire.normalized;
-            currentBullet.transform.forward += new Vector3(spreadAmount, 0, 0);
+            currentBullet.transform.forward += new Vector3(spreadAmountX, spreadAmountY, 0);
             //Temp variable to decide bullet owner, change this later!
             GameObject whoFired = transform.parent.gameObject;
             if(whoFired.gameObject.tag == "PlayerOne")
