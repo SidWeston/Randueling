@@ -133,8 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79198819ec6fa649a8905681c7f8bae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spring: 2
-  drag: 0.06
+  spring: 3.3
+  drag: 0.16
   altPos: {x: 0, y: 0}
   altSizeMult: 1.2
   changesSize: 1

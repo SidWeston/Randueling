@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6946426204522134003}
   - component: {fileID: 1741135749115766049}
   m_Layer: 5
-  m_Name: ChargeSelect
+  m_Name: AutoSelect
   m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,7 +37,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 352, y: 446.5}
+  m_SizeDelta: {x: 302.5, y: 443.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7392343149970312000
 CanvasRenderer:
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1bc4782a148368f43b031606bb994551, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d5d3b84218c8484d91d66a5b6015767, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
