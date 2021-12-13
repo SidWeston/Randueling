@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class RandomWeaponSelection : MonoBehaviour
 {
@@ -26,6 +27,8 @@ public class RandomWeaponSelection : MonoBehaviour
     private bool currentUISet = false;
     private bool currentUISet2 = false;
 
+    private bool pOneWeapon;
+    private bool pTwoWeapon;
 
     // Start is called before the first frame update
     void Start()
@@ -144,10 +147,29 @@ public class RandomWeaponSelection : MonoBehaviour
     {
         GameObject chosenWeapon = weaponsList[playerWeapon];
         GameObject chosenPlayer = GameObject.FindGameObjectWithTag(playerToAddTo);
-        Transform weaponPos = chosenPlayer.GetComponent<PlayerWeapon>().weaponLocation.transform;
-        GameObject weapon = Instantiate(chosenWeapon, weaponPos.position + chosenWeapon.transform.position, transform.rotation, chosenPlayer.transform);
-        weapon.transform.Rotate(0, -8.68f, 0);
-        chosenPlayer.GetComponent<PlayerWeapon>().currentWeapon = weapon;
+        if(!pOneWeapon && chosenPlayer.gameObject.tag == "PlayerOne" ||
+            !pTwoWeapon && chosenPlayer.gameObject.tag == "PlayerTwo")
+        {
+            Transform weaponPos = chosenPlayer.GetComponent<PlayerWeapon>().weaponLocation.transform;
+            GameObject weapon = Instantiate(chosenWeapon, weaponPos.position + chosenWeapon.transform.position, transform.rotation, chosenPlayer.transform);
+            weapon.transform.Rotate(0, -8.68f, 0);
+            chosenPlayer.GetComponent<PlayerWeapon>().currentWeapon = weapon;
+        }
+
+        if (chosenPlayer.gameObject.tag == "PlayerOne")
+        {
+            pOneWeapon = true;
+        } else
+        {
+            pTwoWeapon = true;
+        }
+
+        if (pOneWeapon && pTwoWeapon)
+        {
+            GameObject playerManager = GameObject.FindGameObjectWithTag("PlayerManager");
+            playerManager.GetComponent<PlayerManager>().StartGame();
+        }
+
     }
     
 

@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleSceneTest.unity
     guid: 4d1e444f17e14a642b9127386ff5ac8f
+  - enabled: 1
+    path: Assets/Scenes/End Of Match Screen.unity
+    guid: 0ea55ce4bcbdd4749a1512380be6353c
   m_configObjects: {}

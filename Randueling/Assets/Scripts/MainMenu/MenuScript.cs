@@ -157,7 +157,16 @@ public class MenuScript : MonoBehaviour {
 
 	public void StartDuel()
     {
-		SceneManager.LoadScene(1);
+		if(SceneManager.GetActiveScene().buildIndex == 0)
+        {
+			SceneManager.LoadScene(1);
+        }
+		else if(SceneManager.GetActiveScene().buildIndex == 4)
+        {
+			GameObject playerManager = GameObject.FindGameObjectWithTag("PlayerManager");
+			Destroy(playerManager);
+			SceneManager.LoadScene(0);
+        }
     }
 	#endregion
 

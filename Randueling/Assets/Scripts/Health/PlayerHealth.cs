@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -12,11 +14,14 @@ public class PlayerHealth : MonoBehaviour
 
     private Collision collision;
 
+    private GameObject playerManager;
+
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        playerManager = GameObject.FindGameObjectWithTag("PlayerManager");
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -28,7 +33,17 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Debug.Break();
+            if(gameObject.tag == "PlayerOne")
+            {
+                //player two wins
+                playerManager.GetComponent<PlayerManager>().WhoWins(2);
+            }
+            else
+            {
+                //player one wins
+                playerManager.GetComponent<PlayerManager>().WhoWins(1);
+            }
+            SceneManager.LoadScene(4);
         }
 
     }

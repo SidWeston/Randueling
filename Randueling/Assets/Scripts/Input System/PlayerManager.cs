@@ -21,6 +21,8 @@ public class PlayerManager : MonoBehaviour
     private int currentSceneIndex = 1;
     private float sceneChangeCooldown = 2.0f;
 
+    public float winningPlayerIndex;
+
     //UI Stuff
     //public Image controllerConnected;
     //public Image mkConnected;
@@ -104,4 +106,10 @@ public class PlayerManager : MonoBehaviour
 
     }
 
+    public void WhoWins(int winner)
+    {
+        winningPlayerIndex = winner;
+        Destroy(playerOne);
+        Destroy(playerTwo);
+    }
 }
