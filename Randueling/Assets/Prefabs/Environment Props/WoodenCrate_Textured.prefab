@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3113046236834852184
+--- !u!1 &5504059164328083739
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2339641599658047458}
-  - component: {fileID: 1718061920731740231}
-  - component: {fileID: 3473189553354296461}
-  - component: {fileID: 3316184721672324353}
-  - component: {fileID: 5697526058792965042}
+  - component: {fileID: 5127779224755772321}
+  - component: {fileID: 8108260109349360644}
+  - component: {fileID: 6296776467077259470}
+  - component: {fileID: 8209140706615029211}
+  - component: {fileID: 8205214493190352974}
+  - component: {fileID: -5804227106979093357}
   m_Layer: 0
-  m_Name: Charge Cannon
+  m_Name: WoodenCrate_Textured
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2339641599658047458
+--- !u!4 &5127779224755772321
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3113046236834852184}
+  m_GameObject: {fileID: 5504059164328083739}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.07, z: 0.16}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1718061920731740231
+--- !u!33 &8108260109349360644
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3113046236834852184}
-  m_Mesh: {fileID: -8051533015851476318, guid: b6e5f535cf82606499d973d596c7e892, type: 3}
---- !u!23 &3473189553354296461
+  m_GameObject: {fileID: 5504059164328083739}
+  m_Mesh: {fileID: -3660275907326674588, guid: e77f4ac0c01df89489aacb150a7f54ab, type: 3}
+--- !u!23 &6296776467077259470
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3113046236834852184}
+  m_GameObject: {fileID: 5504059164328083739}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -62,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d755404808bf88442b37c00da17eb07f, type: 2}
+  - {fileID: -5410432677910738137, guid: e77f4ac0c01df89489aacb150a7f54ab, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,54 +85,44 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3316184721672324353
+--- !u!114 &8209140706615029211
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3113046236834852184}
+  m_GameObject: {fileID: 5504059164328083739}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58b124bc996ac204fa516bec4a4911c0, type: 3}
+  m_Script: {fileID: 11500000, guid: 6311f985b7ee24944af5ed3a66fdcc1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: Charge Cannon
-  bulletSpawnLocation: {fileID: 0}
-  bullet: {fileID: 7260239706025385133, guid: 9ed2843d3f944bc40877a8e6e57b1f29, type: 3}
-  doesRichochet: 1
-  isProjectile: 1
-  magazineSize: 1
-  bulletsLeft: 1
-  bulletsShot: 0
-  spread: 0
-  timeBetweenShots: 0.1
-  bulletVelocity: 30
-  reloadTime: 3
-  shooting: 0
-  readyToShoot: 0
-  reloading: 0
-  recoil: 5
-  pickupScript: {fileID: 5697526058792965042}
-  fireInterval: 0.5
-  chargeTime: 1.3
-  bulletsPerFire: 1
-  hasFired: 0
---- !u!114 &5697526058792965042
+  meshes:
+  - {fileID: 4819026508771030130, guid: cd62c88f1a8261c4d8b8b6fb278eb2ac, type: 3}
+  - {fileID: 4819026508771030130, guid: 80d55c0c17e651f47ad1ec8117e2a267, type: 3}
+--- !u!114 &8205214493190352974
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3113046236834852184}
+  m_GameObject: {fileID: 5504059164328083739}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 978e32e8ff0c2c648a70c4e3247ffce6, type: 3}
+  m_Script: {fileID: 11500000, guid: e3c7a8eee3a9ab143a765b21fb31320f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadDipAngle: 3
-  reloadLowerLength: 0.1
-  spring: 2
-  drag: 0.06
-  Rspring: 2
-  Rdrag: 0.06
+--- !u!64 &-5804227106979093357
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5504059164328083739}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3660275907326674588, guid: e77f4ac0c01df89489aacb150a7f54ab, type: 3}

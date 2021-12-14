@@ -466,7 +466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9155c2224929b634da301b8097d0a56f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSelection: {fileID: 1575629515}
+  currentSelection: {fileID: 48881877}
   changeButtonSFX: {fileID: 0}
   changeButtonSFXLength: 1
   chooseButtonSFX: {fileID: 0}

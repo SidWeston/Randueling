@@ -42,20 +42,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        //Left and Right(A and D) movement
-        //Vector3 vMovementVector = transform.forward * dodgeVelocity + transform.right * dodgeVelocity;
-        Vector3 vMovementVector = new Vector3(dodgeVelocity, 0, 0);
-        if (!invertXClamp)
-        {
-            vMovementVector *= -1.0f;
-        }
-        playerController.Move(vMovementVector * fMoveSpeed * Time.deltaTime);
-        //Keeps player on single axis
-        transform.position = new Vector3(transform.position.x, 2, zLocationLock);
-
         //Camera rotation section
         if (rotationEnabled)
         {
@@ -73,8 +61,23 @@ public class PlayerMovement : MonoBehaviour
 
             transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
         }
+    }
 
-        dodgeVelocity = Mathf.Lerp(dodgeVelocity, 0, 0.1f);
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        //Left and Right(A and D) movement
+        //Vector3 vMovementVector = transform.forward * dodgeVelocity + transform.right * dodgeVelocity;
+        Vector3 vMovementVector = new Vector3(dodgeVelocity, 0, 0);
+        if (!invertXClamp)
+        {
+            vMovementVector *= -1.0f;
+        }
+        playerController.Move(vMovementVector * fMoveSpeed * Time.deltaTime);
+        //Keeps player on single axis
+        transform.position = new Vector3(transform.position.x, 2, zLocationLock);
+
+        dodgeVelocity = Mathf.Lerp(dodgeVelocity, 0, 0.2f);
 
         if (dodgeCharges < 3)
         {
